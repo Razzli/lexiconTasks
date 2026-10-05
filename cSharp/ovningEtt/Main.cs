@@ -6,10 +6,12 @@ namespace ovningEtt
     {
         static void Main(string[] args)
         {
+            //Arbetarlista, använder arbetarclassen nedan
             List<Arbetare> arbetare = new List<Arbetare>();
             Console.WriteLine("Startar Registersystem 1.0");
-            bool cont = true;
 
+            //While loop, används som klockcykel för programmet
+            bool cont = true;
             while (cont)
             {
                 Console.WriteLine("Vänligen ange val:");
@@ -25,11 +27,13 @@ namespace ovningEtt
                         String namn = Console.ReadLine();
                         Console.Write("Ange lön: ");
                         String input= Console.ReadLine();
+
+                        //Felhantering, ser till att lönen blir skriven i integerformat
                         try
                         {
                             int lon = Convert.ToInt32(input);
                             arbetare.Add(new Arbetare(){Namn = namn, Lon = lon});
-                            Console.WriteLine("Lägger till ny arbetare, " + namn + "med lönen " + input + "kr");
+                            Console.WriteLine("Lägger till ny arbetare, " + namn + " med lönen " + input + "kr");
                         }
                         catch (System.Exception)
                         {
@@ -37,17 +41,25 @@ namespace ovningEtt
                         }
                         break;
                     case "2":
-                        Console.WriteLine("Skriver ut alla " + Convert.ToString(arbetare.Count) + " arbetare:");
-                        foreach (Arbetare person in arbetare)
+                        //Ser till att det faktiskt finns arbetare
+                        if (arbetare.Count != 0)
                         {
-                            Console.WriteLine(person.ToString());
+                            //For each för att skriva ut mängden arbetare
+                            Console.WriteLine("Skriver ut alla " + Convert.ToString(arbetare.Count) + " arbetare:");
+                            foreach (Arbetare person in arbetare)
+                            {
+                                Console.WriteLine(person.ToString());
+                            }
                         }
+                        else { Console.WriteLine("FEL! Arbetarlista tom"); }
                         break;
                     case "3":
                         Console.WriteLine("Avslutar");
+                        //Avslutar
                         cont = false;
                         break;
                     default:
+                        //Edgecase hantering
                         Console.WriteLine("Ogiltigt svar");
                         break;
                 }
@@ -57,9 +69,11 @@ namespace ovningEtt
 
     public class Arbetare
     {
+        //Getters och setters, hade jag gjort detta i java hade dessa variabler vart privata
         public string Namn { get; set; }
         public int Lon { get; set; }
 
+        //Enkel tostring funktion
         public override string ToString()
         {
             return Namn + ", Lön: " + Convert.ToString(Lon);
