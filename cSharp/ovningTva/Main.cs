@@ -78,16 +78,50 @@ namespace OvningTva
             }
             catch (System.Exception)
             {
-                Console.WriteLine("FEL! ANGE ÅLDER I INTEGERFORMAT! STARTAR OM!");
+                Console.WriteLine("FEL! ANGE ÅLDER I INTEGERFORMAT!");
             }
             return -1;
         }
 
         public static void GroupPriceCheck()
         {
-            
+            Console.Write("\nVänligen ange gruppstorlek:");
+            try
+            {
+                int groupSize = Convert.ToInt32(Console.ReadLine());
+                int totalCost = 0;
+
+                for (int i = 0; i < groupSize; i++)
+                {
+                    while (true)
+                    {
+                        Console.Write($"Gruppmedlem nummer {i+1}");
+                        int age = AgeCheck();
+                        if (age != -1)
+                        {
+                            totalCost += age;
+                            break;
+                        }
+                    }
+                }
+                Console.WriteLine($"Total kostnad för {groupSize} personer är: {totalCost}kr\n");
+            }
+            catch (System.Exception)
+            {
+                Console.WriteLine("FEL! ANGE GRUPPSTORLEK I INTEGERFORMAT!");
+            }
         }
 
+        public static void loopable()
+        {
+            Console.Write("\nAnge text: ");
+            string toWrite = Console.ReadLine();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(toWrite);
+            }
+            
+        }
         
     }
 }
