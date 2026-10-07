@@ -38,6 +38,11 @@ namespace OvningTva
                     case "2":
                         GroupPriceCheck();
                         break;
+                    case "3":
+                        Loopable();
+                        break;
+                    case "4":
+                        break;
                     case "0":
                         Console.WriteLine("Avslutar!");
                         done = true;
@@ -71,8 +76,15 @@ namespace OvningTva
                     }
                     else
                     {
-                        Console.WriteLine("Standardpris: 120kr");
-                        return 120;
+                        if (age < 5 || age > 100)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Standardpris: 120kr");
+                            return 120;
+                        }
                     }
                 }
             }
@@ -112,14 +124,18 @@ namespace OvningTva
             }
         }
 
-        public static void loopable()
+        public static void Loopable()
         {
             Console.Write("\nAnge text: ");
             string toWrite = Console.ReadLine();
             for (int i = 0; i < 10; i++)
             {
-                Console.Write(toWrite);
+                Console.Write($"{i}. {toWrite} ");
             }
+        }
+
+        public static void ThirdWord()
+        {
             
         }
         
