@@ -12,8 +12,10 @@ namespace OvningTva
             string[] menu = [
                 "Hej och välkommen!\n",
                 "Ange menyval nedan:\n",
-                "1: ",
-                "2: ",
+                "1: Prischeck för en person\n",
+                "2: Prischeck för en grupp\n",
+                "3: Skriv ut ett ord 10 gånger\n",
+                "4: Skriv en mening so är minst tre ord lång, ger det tredje ordet\n",
                 "0: Avsluta program\n",
                 "Ange input: "
             ];
@@ -33,6 +35,7 @@ namespace OvningTva
                 switch (input)
                 {
                     case "1":
+                        //Agecheck returnar ett värde som discardas
                         int temp = AgeCheck();
                         break;
                     case "2":
@@ -42,6 +45,7 @@ namespace OvningTva
                         Loopable();
                         break;
                     case "4":
+                        ThirdWord();
                         break;
                     case "0":
                         Console.WriteLine("Avslutar!");
@@ -61,7 +65,8 @@ namespace OvningTva
             try
             {
                 int age = Convert.ToInt32(Console.ReadLine());
-                if (age < 20)
+                //Barnprischeck
+                if (5 < age && age < 20)
                 {
                     Console.WriteLine("Ungdomspris: 80kr");
                     return 80;
@@ -69,15 +74,18 @@ namespace OvningTva
                 //Borde vara else if men uppgiften kräver nestlad if sats
                 else
                 {
-                    if (age >64)
+                    //Pensionärsprischeck
+                    if (100 > age && age > 64)
                     {
                         Console.WriteLine("Pensionärspris: 90kr");
                         return 90;
                     }
                     else
                     {
+                        //Gratisprischeck
                         if (age < 5 || age > 100)
                         {
+                            Console.WriteLine("Personen går gratis!");
                             return 0;
                         }
                         else
@@ -98,6 +106,8 @@ namespace OvningTva
         public static void GroupPriceCheck()
         {
             Console.Write("\nVänligen ange gruppstorlek:");
+
+            //Catches bad inputs
             try
             {
                 int groupSize = Convert.ToInt32(Console.ReadLine());
@@ -108,6 +118,7 @@ namespace OvningTva
                     while (true)
                     {
                         Console.Write($"Gruppmedlem nummer {i+1}");
+                        //Använder den färdigskapade funktionen för case 1
                         int age = AgeCheck();
                         if (age != -1)
                         {
@@ -130,13 +141,49 @@ namespace OvningTva
             string toWrite = Console.ReadLine();
             for (int i = 0; i < 10; i++)
             {
-                Console.Write($"{i}. {toWrite} ");
+                Console.Write($"{i+1}. {toWrite} ");
             }
+            //Formatting
+            Console.Write("\n");
         }
 
         public static void ThirdWord()
         {
-            
+            Console.WriteLine("\nVänligen skriv en mening nedan: ");
+            string input = Console.ReadLine();
+            //Kollar så det finns maellanslag
+            if (input.Contains(' '))
+            {
+                input = input.Trim();
+                if (input.Contains(' '))
+                {
+                        while (input.Contains("  "))
+                    {
+                        //Tar bort repeterade whitespaces
+                        input = input.Replace("  ", " ");
+                    }
+
+                    string[] words = input.Split(" ");
+
+                //Kollar ifall det finns tre ord
+                    if (words.Length > 2)
+                    {
+                        Console.WriteLine(words[2]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Input måste innehålla minst tre ord!\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Input måste innehålla flera separerade ord!\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Input måste innehålla flera ord!\n");
+            }
         }
         
     }
