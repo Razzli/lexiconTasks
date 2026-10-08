@@ -1,4 +1,6 @@
-﻿namespace ExceptionsDemo
+﻿using System.Text.RegularExpressions;
+
+namespace ExceptionsDemo
 {
     internal class Program
     {
@@ -34,7 +36,15 @@
                 catch (Exception ex)
                 {
                     // Fallback för alla övriga obekanta fel
-                    Console.WriteLine($"Okänt fel: {ex.Message}");
+                    if (ex.InnerException == null)
+                    {
+                        Console.WriteLine($"Okänt fel: {ex.Message}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Internt fel: {ex.InnerException.Message}");
+                    }
+                    
                 }
                 finally
                 {
@@ -59,13 +69,14 @@
                 {
                     reader = new StreamReader(fileName);
 
-                    string? line = reader.ReadLine();
-                    if (line == null)
-                        throw new InvalidOperationException("Filen är tom.");
+                    string? line = reader.ReadLine() ?? throw new InvalidOperationException("Filen är tom.");
 
+                    //Regex check, letar efter andra tecken än siffror
+                    if (Regex.IsMatch(line, "[^0-9]")) throw new FormatException("Fil innehåller andra tecken än siffror");
                     // Försöker omvandla text till tal
                     int number = int.Parse(line); // Kan ge FormatException
 
+                    if (!Regex.IsMatch(line, "[^0]")) throw new DivideByZeroException("Input kan inte vara 0");
                     // Division: kan ge DivideByZeroException
                     return 100.0 / number;
                 }
