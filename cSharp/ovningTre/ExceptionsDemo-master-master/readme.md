@@ -3,8 +3,8 @@ Svar på frågor givna i övningen
 1. Filenotfoundexception: Byt namn på filen alt. ta bort filen helt och hållet
 2. Formatexception: Filen innehåller andra tecken än siffror
 3. Dividebyzerexception: Filen innehåller en/flera nollor (endast)
-4. InvalidOperationException rad 70: Filen saknar innehåll
-5. Exception rad 62 ges ifall programmet inte får in en filpath (ta bort numbers.txt i andropet)
+4. InvalidOperationException rad 95: Filen saknar innehåll
+5. Exception rad 64 ges ifall programmet inte får in en filpath (ta bort numbers.txt i andropet)
 
 Förändringar i koden:
 
