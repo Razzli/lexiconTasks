@@ -1,0 +1,5 @@
+namespace OvningFyra;
+class Validation
+{
+    
+}

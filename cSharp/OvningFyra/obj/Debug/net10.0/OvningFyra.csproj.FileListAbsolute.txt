@@ -1,0 +1,15 @@
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\bin\Debug\net10.0\OvningFyra.exe
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\bin\Debug\net10.0\OvningFyra.deps.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\bin\Debug\net10.0\OvningFyra.runtimeconfig.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\bin\Debug\net10.0\OvningFyra.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\bin\Debug\net10.0\OvningFyra.pdb
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.AssemblyInfoInputs.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.AssemblyInfo.cs
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.csproj.CoreCompileInputs.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.sourcelink.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\refint\OvningFyra.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.pdb
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\OvningFyra.genruntimeconfig.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningFyra\obj\Debug\net10.0\ref\OvningFyra.dll
