@@ -1,0 +1,1 @@
+Nonfunctional project made to test a concept in C#
