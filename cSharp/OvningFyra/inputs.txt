@@ -1,0 +1,12 @@
+10
+Ellis Yoder 43 2000,0
+Johan Morrison 25 550,0
+Rebecca Carrillo 90 6000,0
+Wade Morris 69 560,0
+Genesis Cobb 43 670,0
+Raphael Yates 67 352,0
+Charley Maldonado 20 672,0
+Javier Maxwell 30 234,0
+Kyla Hammond 20 560,2
+Francis Guzman 15 780,2
+10

@@ -4,6 +4,6 @@ Program.cs -> Main Funciton
 
 Objects/Person.cs -> Person object
 
-Functions/SalaryManager.cs -> Handles increases and decreases in salary
+testinputs.txt -> testing material
 
-Functions/Validation.cs -> Handles input validation
+Decimal point is a comma: ,

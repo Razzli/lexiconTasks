@@ -1,17 +1,24 @@
-using System.Runtime.InteropServices;
 
-namespace OvningFyra;
+namespace OvningFyra.Objects;
 public class Person
 {
     private string firstName;
     private string lastName;
     private int age;
 
-    public Person(string firstName, string lastName, int age)
+    private decimal salary;
+
+    public Person(string firstName, string lastName, int age, decimal salary)
     {
+        //Validation
+        if (firstName.Length < 3) throw new ArgumentException("First name must contain at least 3 letters");
+        if (lastName.Length < 3) throw new ArgumentException("Last name must contain at least 3 letters");
+        if (age <= 0) throw new ArgumentException("Age must be more than 0");
+        if (salary < 460) throw new ArgumentException("Salary must be more than 460");
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.salary = salary;
     }
 
     public string FirstName
@@ -55,8 +62,30 @@ public class Person
         }
     }
 
+    public decimal Salary
+    {
+        get {return this.salary;}
+        private set
+        {
+            this.salary = value;
+        }
+    }
+
+    public void Bonus(int Increase)
+    {
+        if (age < 30)
+        {
+            this.salary += (this.salary/Increase)/2;
+        }
+        else
+        {
+            this.salary += (this.salary/Increase);
+        }
+        
+    }
+
     public override string ToString()
     {
-        return $"{firstName} {lastName} is {age} years old";
+        return $"{firstName} {lastName} receives {salary} dollars";
     }
 }

@@ -1,5 +1,0 @@
-namespace OvningFyra;
-class Validation
-{
-    
-}
