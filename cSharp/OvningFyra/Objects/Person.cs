@@ -10,11 +10,8 @@ public class Person
 
     public Person(string firstName, string lastName, int age, decimal salary)
     {
-        //Validation
-        if (firstName.Length < 3) throw new ArgumentException("First name must contain at least 3 letters");
-        if (lastName.Length < 3) throw new ArgumentException("Last name must contain at least 3 letters");
-        if (age <= 0) throw new ArgumentException("Age must be more than 0");
-        if (salary < 460) throw new ArgumentException("Salary must be more than 460");
+        //Validation function
+        Validate(firstName, lastName, age, salary);
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -24,64 +21,55 @@ public class Person
     public string FirstName
     {
         get {return this.firstName;}
-        private set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("Namn kan inte vara tomt");
-            }
-            else
-            {
-                this.firstName = value;
-            }
-        }
+        private set{this.firstName = value;}
+        
     }
 
     public string LastName
     {
         get {return this.lastName;}
-        private set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("Efternamn kan inte vara tomt");
-            }
-            else
-            {
-                this.lastName = value;
-            }
-        }
+        private set{this.lastName = value;}
     }
 
     public int Age
     {
         get {return this.age;}
-        private set
-        {
-            this.age = value;
-        }
+        private set{this.age = value;}
     }
 
     public decimal Salary
     {
         get {return this.salary;}
-        private set
-        {
-            this.salary = value;
-        }
+        private set{this.salary = value;}
     }
 
-    public void Bonus(int Increase)
+    public void Bonus(decimal Increase)
     {
-        if (age < 30)
+        //Turn increase into a percentage
+        Increase /= 100;
+        if (this.age < 30)
         {
-            this.salary += (this.salary/Increase)/2;
+            Increase /= 2;
+            this.salary += (this.salary*(Increase));
         }
         else
         {
-            this.salary += (this.salary/Increase);
+            this.salary += (this.salary*(Increase));
         }
         
+    }
+
+    public void Validate(string firstName, string lastName, int age, decimal salary)
+    {
+        if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentException("First name cannot be empty");
+        else if (firstName.Length < 3) throw new ArgumentException("First name must contain at least 3 letters");
+        
+        if (string.IsNullOrWhiteSpace(lastName)) throw new ArgumentException("Last name cannot be empty");
+        else if (lastName.Length < 3) throw new ArgumentException("Last name must contain at least 3 letters");
+        
+        if (age <= 0) throw new ArgumentException("Age must be more than 0");
+        
+        if (salary < 460) throw new ArgumentException("Salary must be at least 460");
     }
 
     public override string ToString()

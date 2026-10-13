@@ -12,6 +12,7 @@ class Program
         for (int i = 0; i < lines; i++)
         {
             string[] arguments = Console.ReadLine().Split(" ");
+
             try
             {
                 people.Add(new Person(arguments[0], arguments[1], Convert.ToInt32(arguments[2]), Convert.ToDecimal(arguments[3])));
@@ -27,8 +28,10 @@ class Program
             
             
         }
+
+        //Asks for bonus in integerformat so the user doesn't accidentally give a number like 0,01
         Console.Write("Give bonus in integerformat: ");
-        int bonus = Convert.ToInt32(Console.ReadLine());
+        decimal bonus = Convert.ToDecimal(Console.ReadLine());
         foreach (Person person in people)
         {
             person.Bonus(bonus);
