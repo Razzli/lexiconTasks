@@ -17,8 +17,9 @@ class View
         "4. TA BORT ETT FORDON\n",
         "5. SORTERA FORDON\n",
         "6. SÖK FORDON EFTER EGENSKAP\n",
-        "7. SKAPA ETT NYTT GARAGE\n",
-        "8. AVSLUTA\n",
+        "7. SKAPA ETT NYTT TOMT GARAGE\n",
+        "8. SKAPA ETT NYTT POPULERAT GARAGE\n",
+        "9. AVSLUTA\n",
         "ANGE INPUT: "
     ];
 
@@ -39,11 +40,12 @@ class View
                 switch (choice)
                 {
                     case 1:
-                        Storage = Controller.GarageCreator();
+                        Storage = Controller.EmptyGarageCreator();
                         Running = false;
                         break;
                     case 2:
-                        throw new NotImplementedException();
+                        Storage = Controller.GarageCreator();
+                        Running = false;
                         break;
                     default:
                         Console.WriteLine("ANGE 1 ELLER 2! STARTAR OM");
@@ -69,27 +71,30 @@ class View
                 switch (choice)
                 {
                     case 1:
-                        throw new NotImplementedException();
+                        Controller.ListVehicles(Storage);
                         break;
                     case 2:
-                        throw new NotImplementedException();
+                        Controller.ListVehicleTypes(Storage);
                         break;
                     case 3:
-                        throw new NotImplementedException();
+                        Controller.VehicleAdd(Storage);
                         break;
                     case 4:
-                        throw new NotImplementedException();
+                        Controller.VehicleRemove(Storage);
                         break;
                     case 5:
-                        throw new NotImplementedException();
+                        Controller.VehicleSort(Storage);
                         break;
                     case 6:
-                        throw new NotImplementedException();
+                        Controller.VehicleSearch(Storage);
                         break;
                     case 7:
-                        throw new NotImplementedException();
+                        Storage = Controller.EmptyGarageCreator();
                         break;
                     case 8:
+                        Storage = Controller.GarageCreator();
+                        break;
+                    case 9:
                         Console.WriteLine("AVSLUTAR");
                         Running = false;
                         break;
@@ -100,8 +105,7 @@ class View
             }
             catch (FormatException)
             {
-                
-                throw;
+                Console.WriteLine("ANGE ETT TAL I INTEGERFORMAT");
             }
         }
     }

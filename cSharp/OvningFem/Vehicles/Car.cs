@@ -2,29 +2,14 @@ namespace OvningFem.Vehicles;
 
 class Car : Vehicle
 {
-    private int _wheelCount;
     private bool _sunroof;
 
-    public Car(string Colour, int SeatCount, string Registry, string Propulsion, int WheelCount, bool Sunroof)
+    public Car(string Colour, int SeatCount, string Registry, bool Sunroof)
     {
         this.Colour = Colour;
         this.SeatCount = SeatCount;
         this.Registry = Registry;
-        this.Propulsion = Propulsion;
-        this.WheelCount = WheelCount;
         this.Sunroof = Sunroof;
-    }
-
-    public int WheelCount
-    {
-        get
-        {
-            return this._wheelCount;
-        }
-        init
-        {
-            this._wheelCount = WheelCount;
-        }
     }
 
 //TODO make HasSunRoof
@@ -38,5 +23,11 @@ class Car : Vehicle
         {
             this._sunroof = Sunroof;
         }
+    }
+
+    public override string ToString()
+    {
+        if (this.Sunroof) return $"En bil med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten med soltak";
+        return $"En bil med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten utan soltak";
     }
 }

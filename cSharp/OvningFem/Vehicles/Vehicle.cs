@@ -5,7 +5,6 @@ class Vehicle
     private string _registry;
     private string _colour;
     private int _seatCount;
-    private string _propulsion;
 
     public bool CompareRegistry(Vehicle Target)
     {
@@ -23,13 +22,6 @@ class Vehicle
     {
         return _seatCount <= Target.SeatCount;
     }
-
-    public bool ComparePropulsion(Vehicle Target)
-    {
-        if (_propulsion.CompareTo(Target.Propulsion) < 0) { return true; }
-        return false;
-    }
-
 
     public string Registry
     {
@@ -65,18 +57,6 @@ class Vehicle
         init
         {
             this._seatCount = SeatCount;
-        }
-    }
-
-    public string Propulsion
-    {
-        get
-        {
-            return this._propulsion;
-        }
-        init
-        {
-            this._propulsion = Propulsion;
         }
     }
 }

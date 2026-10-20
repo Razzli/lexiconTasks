@@ -7,12 +7,11 @@ class Boat : Vehicle
     private int _length;
     private int _engineCount;
 
-    public Boat(string Colour, int SeatCount, string Registry, string Propulsion, int Length, int EngineCount)
+    public Boat(string Colour, int SeatCount, string Registry, int Length, int EngineCount)
     {
         this.Colour = Colour;
         this.SeatCount = SeatCount;
         this.Registry = Registry;
-        this.Propulsion = Propulsion;
         this.Length = Length;
         this.EngineCount = EngineCount;
     }
@@ -29,7 +28,7 @@ class Boat : Vehicle
         }
     }
 
-//TODO remove setter
+
     public int EngineCount
     {
         get
@@ -40,5 +39,10 @@ class Boat : Vehicle
         {
             this._engineCount = EngineCount;
         }
+    }
+
+    public override string ToString()
+    {
+        return $"En båt med registreringen {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, längden {this.Length} och {EngineCount} motorer";
     }
 }

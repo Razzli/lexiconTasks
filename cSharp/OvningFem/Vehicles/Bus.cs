@@ -4,17 +4,14 @@ class Bus : Vehicle
 {
     private bool _roofAccess;
     private int _wheelCount;
-    private int _engineCount;
 
-    public Bus(string Colour, int SeatCount, string Registry, string Propulsion, bool RoofAccess, int WheelCount, int EngineCount)
+    public Bus(string Colour, int SeatCount, string Registry, bool RoofAccess, int WheelCount)
     {
         this.Colour = Colour;
         this.SeatCount = SeatCount;
         this.Registry = Registry;
-        this.Propulsion = Propulsion;
         this.RoofAccess = RoofAccess;
         this.WheelCount = WheelCount;
-        this.EngineCount = EngineCount;
     }
 
 //TODO implement hasRoofAccess
@@ -41,16 +38,9 @@ class Bus : Vehicle
             this._wheelCount = WheelCount;
         }
     }
-
-    public int EngineCount
+    public override string ToString()
     {
-        get
-        {
-            return this._engineCount;
-        }
-        init
-        {
-            this._engineCount = EngineCount;
-        }
+        if (this.RoofAccess) return $"En buss med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, {this.WheelCount} hjul med takaccess";
+        return $"En buss med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, {this.WheelCount} hjul utan takaccess";
     }
 }

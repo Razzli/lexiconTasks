@@ -1,13 +1,13 @@
-using System.Diagnostics;
 using OvningFem.Vehicles;
 
 namespace OvningFem.Garages;
 
 class Garage
 {
-    //Reinventing arrays at first principles
+    //Reinventing lists at first principles
     private Vehicle[] _storage;
     private int _storedVehiclesAmount = 0;
+    private int[] _typeCount = [0,0,0,0,0];
     
     public Garage(int Size)
     {
@@ -18,6 +18,7 @@ class Garage
     {
         _storage = new Vehicle[Size];
         Array.Copy(Vehicles, _storage, Vehicles.Length);
+        Count();
     }
 
     public int GetSize()
@@ -35,12 +36,19 @@ class Garage
         return _storedVehiclesAmount;
     }
 
+    public int[] GetCount()
+    {
+        return _typeCount;
+    }
+
     public void AddVehicle(Vehicle Vehicle)
     {
         if (_storedVehiclesAmount != _storage.Length - 1)
         {
             _storage[_storedVehiclesAmount] = Vehicle;
             _storedVehiclesAmount++;
+            Count();
+            Console.WriteLine("Fordon tillagt!");
         }
         else
         {
@@ -52,6 +60,8 @@ class Garage
     {
         _storage[Index] = _storage[_storedVehiclesAmount-1];
         _storedVehiclesAmount--;
+        Count();
+        Console.WriteLine("Fordon borttaget!");
     }
 
     public Vehicle GetVehicleByRegistry(string Registry)
@@ -72,17 +82,53 @@ class Garage
 
     private void Count()
     {
+        int[] TypeCount = [0,0,0,0,0];
         for (int i = 0; i < _storedVehiclesAmount; i++)
         {
             switch (_storage[i])
             {
                 case Airplane:
+                    TypeCount[0] ++;
+                    break;
+                case Boat:
+                    TypeCount[1] ++;
+                    break;
+                case Bus:
+                    TypeCount[2] ++;
+                    break;
+                case Car:
+                    TypeCount[3] ++;
+                    break;
+                case Motorcycle:
+                    TypeCount[4] ++;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("Garage count broke somehow");
             }
         }
+        this._typeCount = TypeCount;
     }
 
+    public void Sort(int type)
+    {
+        for (int i = 0; i < _storedVehiclesAmount-1; i++)
+        {
+            for (int j = i+1; j < _storedVehiclesAmount; j++)
+            {
+                if (type == 1)
+                {
+                    
+                }
+                else if (type == 2)
+                {
+                    
+                }
+                else if (type == 3)
+                {
+                    
+                }
+            }
+        }
+    }
     
 }
