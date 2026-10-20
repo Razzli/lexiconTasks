@@ -9,13 +9,13 @@ Vehicles -> Vehicle + Types (Motorcycle, Airplane, Car, Bus, Boat)
 Garage -> Collection of Vehicles
 
 Vehicle -> Contains common variables:
-    Colour
+    Colour (Preset?)
     SeatCount
-    Registry (Should differ between vehicle types)
-    Propulsion
+    Registry (Should differ between vehicle types) (Do this for the next refactor)
+    Propulsion (Electric, Gas, Diesel)
 
 MotorCycle ->
-    Wheelcount
+    Storage Compartment
     
 
 Airplane ->
@@ -30,6 +30,7 @@ Car ->
 Bus ->
     idk roof access?
     Wheelcount
+    Engine COunt
 
 Boat ->
     Length
