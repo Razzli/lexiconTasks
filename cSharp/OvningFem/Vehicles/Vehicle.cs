@@ -7,6 +7,30 @@ class Vehicle
     private int _seatCount;
     private string _propulsion;
 
+    public bool CompareRegistry(Vehicle Target)
+    {
+        if (_registry.CompareTo(Target.Registry) < 0) { return true; }
+        return false;
+    }
+
+    public bool CompareColour(Vehicle Target)
+    {
+        if (_colour.CompareTo(Target.Colour) < 0) { return true; }
+        return false;
+    }
+
+    public bool CompareSeat(Vehicle Target)
+    {
+        return _seatCount <= Target.SeatCount;
+    }
+
+    public bool ComparePropulsion(Vehicle Target)
+    {
+        if (_propulsion.CompareTo(Target.Propulsion) < 0) { return true; }
+        return false;
+    }
+
+
     public string Registry
     {
         get

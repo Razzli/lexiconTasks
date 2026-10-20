@@ -2,6 +2,7 @@ Architecture ->
 
 Program -> Main method (hold view?)
     alt. Console class called from main
+    Future refactor^^
     
 
 Vehicles -> Vehicle + Types (Motorcycle, Airplane, Car, Bus, Boat)
@@ -35,3 +36,11 @@ Bus ->
 Boat ->
     Length
     Engine Count
+
+
+Welcome ->
+Create Garage ->
+
+Data actions ->
+
+Create new garage/Exit
