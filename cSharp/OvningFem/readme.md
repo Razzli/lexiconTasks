@@ -10,8 +10,6 @@ Vehicles -> Vehicle + Types (Motorcycle, Airplane, Car, Bus, Boat)
 Garage -> Collection of Vehicles
 
 TODO: CUT DOWN ON VARIABLES
-TODO: REMEMBER THAT YOU ARE DOING A TWO DAY TASK IN ONE DAY
-TODO: YOU FORGOT
 
 Vehicle -> Contains common variables:
     Colour (Preset?)

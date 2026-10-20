@@ -169,7 +169,10 @@ class Controller
                     int answer = Convert.ToInt32(Console.ReadLine());
                     if (answer < 1) Console.WriteLine("Ge ett giltigt tal");
                     else if (answer > 3) Console.WriteLine("Ge ett giltigt tal");
-                    else Storage.Sort(answer);
+                    else{
+                        Storage.Sort(answer);
+                        break;
+                    }
                 }
                 catch (FormatException)
                 {
