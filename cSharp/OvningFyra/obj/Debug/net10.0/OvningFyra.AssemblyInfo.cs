@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OvningFyra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af54a6850cc6eda6bdafbfd74ba32f779600cae7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3c3b114be14e2af9994b8df65b8359100b46da1")]
 [assembly: System.Reflection.AssemblyProductAttribute("OvningFyra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OvningFyra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

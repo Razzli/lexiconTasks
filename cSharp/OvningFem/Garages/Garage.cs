@@ -18,6 +18,7 @@ class Garage
     {
         _storage = new Vehicle[Size];
         Array.Copy(Vehicles, _storage, Vehicles.Length);
+        _storedVehiclesAmount = Vehicles.Length;
         Count();
     }
 
@@ -43,7 +44,7 @@ class Garage
 
     public void AddVehicle(Vehicle Vehicle)
     {
-        if (_storedVehiclesAmount != _storage.Length - 1)
+        if (_storedVehiclesAmount != _storage.Length)
         {
             _storage[_storedVehiclesAmount] = Vehicle;
             _storedVehiclesAmount++;
@@ -76,7 +77,7 @@ class Garage
     public Vehicle[] GetStorage()
     {
         Vehicle[] Storage = new Vehicle[_storedVehiclesAmount];
-        Array.Copy(_storage, new Vehicle[_storedVehiclesAmount], _storedVehiclesAmount);
+        Array.Copy(_storage, Storage, _storedVehiclesAmount);
         return Storage;
     }
 
@@ -109,6 +110,7 @@ class Garage
         this._typeCount = TypeCount;
     }
 
+//NOT IMPLEMENTED YET
     public void Sort(int type)
     {
         for (int i = 0; i < _storedVehiclesAmount-1; i++)

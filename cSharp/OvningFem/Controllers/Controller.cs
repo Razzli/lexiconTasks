@@ -1,5 +1,3 @@
-
-using System.Runtime.InteropServices.Marshalling;
 using OvningFem.Garages;
 using OvningFem.Vehicles;
 
@@ -7,8 +5,11 @@ namespace Ovningfem.Controllers;
 
 class Controller
 {
+    //TODO MAKE LESS THEN 100 LINES
     public static Vehicle VehicleCreator()
     {
+        string Colour, Registry;
+        int SeatCount;
         while(true){
             try
             {
@@ -22,9 +23,197 @@ class Controller
                 int answer = Convert.ToInt32(Console.ReadLine());
                 switch (answer)
                 {
-                    
+                    case 1:
+                        while (true)
+                        {
+                            try
+                            {
+                                Console.WriteLine("Du har valt: Flygplan");
+                                Console.Write("Ange färg: ");
+                                Colour = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(Colour))
+                                {
+                                    Console.Write("Ange Registrering: ");
+                                    Registry = Console.ReadLine();
+                                    if (!string.IsNullOrWhiteSpace(Registry))
+                                    {
+                                        Console.Write("Ange säten: ");
+                                        SeatCount = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Ange vingspann: ");
+                                        int Wingspan = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Ange motorantal: ");
+                                        int Engines = Convert.ToInt32(Console.ReadLine());
+                                        Airplane Plane = new Airplane(Colour, SeatCount, Registry, Wingspan, Engines);
+                                        Console.WriteLine($"Du har skapat: {Plane.ToString()}");
+                                        return Plane;
+                                    }
+                                }
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("FEL FÖRSÖK IGEN");
+                            }
+                            
+                        }
+                    case 2:
+                    try
+                            {
+                                Console.WriteLine("Du har valt: Båt");
+                                Console.Write("Ange färg: ");
+                                Colour = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(Colour))
+                                {
+                                    Console.Write("Ange Registrering: ");
+                                    Registry = Console.ReadLine();
+                                    if (!string.IsNullOrWhiteSpace(Registry))
+                                    {
+                                        Console.Write("Ange säten: ");
+                                        SeatCount = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Ange Längd: ");
+                                        int Length = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Ange motorantal: ");
+                                        int EngineCount = Convert.ToInt32(Console.ReadLine());
+                                        Boat Bot = new Boat(Colour, SeatCount, Registry, Length, EngineCount);
+                                        Console.WriteLine($"Du har skapat: {Bot.ToString()}");
+                                        return Bot;
+                                    }
+                                }
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("FEL FÖRSÖK IGEN");
+                            }
+                        break;
+                    case 3:
+                    try
+                            {
+                                Console.WriteLine("Du har valt: Buss");
+                                Console.Write("Ange färg: ");
+                                Colour = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(Colour))
+                                {
+                                    Console.Write("Ange Registrering: ");
+                                    Registry = Console.ReadLine();
+                                    if (!string.IsNullOrWhiteSpace(Registry))
+                                    {
+                                        Console.Write("Ange säten: ");
+                                        SeatCount = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Ange antal hjul: ");
+                                        int WheelCount = Convert.ToInt32(Console.ReadLine());
+                                        Bus Buss;
+                                        while (true)
+                                        {
+                                            Console.Write("Tak access y/n: ");
+                                            string Answer = Console.ReadLine().ToLower();
+                                            switch (Answer)
+                                            {
+                                                case "y":
+                                                    Buss = new Bus(Colour, SeatCount, Registry, true, WheelCount);
+                                                    Console.WriteLine($"Du har skapat: {Buss.ToString()}");
+                                                    return Buss;
+                                                case "n":
+                                                    Buss = new Bus(Colour, SeatCount, Registry, true, WheelCount);
+                                                    Console.WriteLine($"Du har skapat: {Buss.ToString()}");
+                                                    return Buss;
+                                                default:
+                                                    Console.WriteLine("FEL SVAR");
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("FEL FÖRSÖK IGEN");
+                            }
+                        break;
+                    case 4:
+                        try
+                            {
+                                Console.WriteLine("Du har valt: Bil");
+                                Console.Write("Ange färg: ");
+                                Colour = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(Colour))
+                                {
+                                    Console.Write("Ange Registrering: ");
+                                    Registry = Console.ReadLine();
+                                    if (!string.IsNullOrWhiteSpace(Registry))
+                                    {
+                                        Console.Write("Ange säten: ");
+                                        SeatCount = Convert.ToInt32(Console.ReadLine());
+                                        Car Bil;
+                                        while (true)
+                                        {
+                                            Console.Write("Takfönster y/n: ");
+                                            string Answer = Console.ReadLine().ToLower();
+                                            switch (Answer)
+                                            {
+                                                case "y":
+                                                    Bil = new Car(Colour, SeatCount, Registry, true);
+                                                    Console.WriteLine($"Du har skapat: {Bil.ToString()}");
+                                                    return Bil;
+                                                case "n":
+                                                    Bil = new Car(Colour, SeatCount, Registry, false);
+                                                    Console.WriteLine($"Du har skapat: {Bil.ToString()}");
+                                                    return Bil;
+                                                default:
+                                                    Console.WriteLine("FEL SVAR");
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("FEL FÖRSÖK IGEN");
+                            }
+                        break;
+                    case 5:
+                        try
+                            {
+                                Console.WriteLine("Du har valt: Motorcykel");
+                                Console.Write("Ange färg: ");
+                                Colour = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(Colour))
+                                {
+                                    Console.Write("Ange Registrering: ");
+                                    Registry = Console.ReadLine();
+                                    if (!string.IsNullOrWhiteSpace(Registry))
+                                    {
+                                        Console.Write("Ange säten: ");
+                                        SeatCount = Convert.ToInt32(Console.ReadLine());
+                                        Motorcycle Motorcykel;
+                                        while (true)
+                                        {
+                                            Console.Write("Förvaring y/n: ");
+                                            string Answer = Console.ReadLine().ToLower();
+                                            switch (Answer)
+                                            {
+                                                case "y":
+                                                    Motorcykel = new Motorcycle(Colour, SeatCount, Registry, true);
+                                                    Console.WriteLine($"Du har skapat: {Motorcykel.ToString()}");
+                                                    return Motorcykel;
+                                                case "n":
+                                                    Motorcykel = new Motorcycle(Colour, SeatCount, Registry, false);
+                                                    Console.WriteLine($"Du har skapat: {Motorcykel.ToString()}");
+                                                    return Motorcykel;
+                                                default:
+                                                    Console.WriteLine("FEL SVAR");
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("FEL FÖRSÖK IGEN");
+                            }
+                        break;
                     default:
-                        Console.WriteLine("Ge ett giltigt integertal");
+                        Console.WriteLine("Ge ett giltigt tal");
                         break;
                 }
             }
@@ -109,7 +298,6 @@ class Controller
         else
         {
             Storage.AddVehicle(VehicleCreator());
-            Console.WriteLine("FORDON TILLAGT");
         }
     }
 
@@ -151,11 +339,12 @@ class Controller
 
     public static void VehicleSearch(Garage Storage)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("EJ IMPLEMENTERAD");
     }
 
     public static void VehicleSort(Garage Storage)
     {
+        /**
         if (Storage.GetUsedSpace() > 1)
         {
             while(true){
@@ -184,12 +373,13 @@ class Controller
         {
             Console.WriteLine("För få fordon för sortering");
         }
-        
+        **/
+        Console.WriteLine("EJ IMPLEMENTERAD");
     }
 
     public static void ListVehicles(Garage Storage)
     {
-        if (Storage.GetFreeSpace() == 0)
+        if (Storage.GetUsedSpace() == 0)
         {
             Console.WriteLine("Garaget är tomt!");
         }

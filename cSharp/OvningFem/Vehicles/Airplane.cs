@@ -20,9 +20,9 @@ class Airplane : Vehicle
         {
             return this._wingspan;
         }
-        init
+        set
         {
-            this._wingspan = Wingspan;
+            this._wingspan = value;
         }
     }
     public int EngineCount
@@ -31,14 +31,14 @@ class Airplane : Vehicle
         {
             return _engineCount;
         }
-        init
+        set
         {
-            this._engineCount = EngineCount;
+            this._engineCount = value;
         }
     }
 
     public override string ToString()
     {
-        return $"Ett flygplan med registreringsnummer {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, {this.EngineCount} motorer och ett vingspann på {this.Wingspan} meter";
+        return $"Ett flygplan med registreringsnummer {this._registry}, färgen {this._colour}, {this._seatCount} säten, {this._engineCount} motorer och ett vingspann på {this._wingspan} meter";
     }
 }

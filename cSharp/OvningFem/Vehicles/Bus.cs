@@ -21,9 +21,9 @@ class Bus : Vehicle
         {
             return this._roofAccess;
         }
-        init
+        set
         {
-            this._roofAccess = RoofAccess;
+            this._roofAccess = value;
         }
     }
 
@@ -33,14 +33,14 @@ class Bus : Vehicle
         {
             return this._wheelCount;
         }
-        init
+        set
         {
-            this._wheelCount = WheelCount;
+            this._wheelCount = value;
         }
     }
     public override string ToString()
     {
-        if (this.RoofAccess) return $"En buss med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, {this.WheelCount} hjul med takaccess";
-        return $"En buss med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, {this.WheelCount} hjul utan takaccess";
+        if (this._roofAccess) return $"En buss med registreringsnummret {this._registry}, färgen {this._colour}, {this._seatCount} säten, {this._wheelCount} hjul med takaccess";
+        return $"En buss med registreringsnummret {this._registry}, färgen {this._colour}, {this._seatCount} säten, {this._wheelCount} hjul utan takaccess";
     }
 }

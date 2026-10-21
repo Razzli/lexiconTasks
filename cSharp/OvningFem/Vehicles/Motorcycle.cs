@@ -6,6 +6,7 @@ class Motorcycle : Vehicle
 
     public Motorcycle(string Colour, int SeatCount, string Registry, bool StorageCompartment)
     {
+        
         this.Colour = Colour;
         this.SeatCount = SeatCount;
         this.Registry = Registry;
@@ -19,15 +20,15 @@ class Motorcycle : Vehicle
         {
             return this._storageCompartment;
         }
-        init
+        set
         {
-            this._storageCompartment = StorageCompartment;
+            this._storageCompartment = value;
         }
     }
 
     public override string ToString()
     {
-        if (this.StorageCompartment) return $"En motorcykel med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten med förvaring";
-        return $"En motorcykel med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten utan förvaring";
+        if (this._storageCompartment) return $"En motorcykel med registreringsnummret {this._registry}, färgen {this._colour}, {this._seatCount} säten med förvaring";
+        return $"En motorcykel med registreringsnummret {this._registry}, färgen {this._colour}, {this._seatCount} säten utan förvaring";
     }
 }

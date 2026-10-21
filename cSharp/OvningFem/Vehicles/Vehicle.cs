@@ -2,9 +2,9 @@ namespace OvningFem.Vehicles;
 
 class Vehicle
 {
-    private string _registry;
-    private string _colour;
-    private int _seatCount;
+    protected string _registry;
+    protected string _colour;
+    protected int _seatCount;
 
     public bool CompareRegistry(Vehicle Target)
     {
@@ -29,9 +29,9 @@ class Vehicle
         {
             return this._registry;
         }
-        init
+        set
         {
-            this._registry = Registry;
+            this._registry = value;
         }
     }
 
@@ -41,9 +41,9 @@ class Vehicle
         {
             return this._colour;
         }
-        init
+        set
         {
-            this._colour = Colour;
+            this._colour = value;
         }
 
     }
@@ -54,9 +54,9 @@ class Vehicle
         {
             return this._seatCount;
         }
-        init
+        set
         {
-            this._seatCount = SeatCount;
+            this._seatCount = value;
         }
     }
 }

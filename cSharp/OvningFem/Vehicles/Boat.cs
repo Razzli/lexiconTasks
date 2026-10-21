@@ -22,9 +22,9 @@ class Boat : Vehicle
         {
             return this._length;
         }
-        init
+        set
         {
-            this._length = Length;
+            this._length = value;
         }
     }
 
@@ -35,14 +35,14 @@ class Boat : Vehicle
         {
             return this._engineCount;
         }
-        init
+        set
         {
-            this._engineCount = EngineCount;
+            this._engineCount = value;
         }
     }
 
     public override string ToString()
     {
-        return $"En båt med registreringen {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten, längden {this.Length} och {EngineCount} motorer";
+        return $"En båt med registreringen {this._registry}, färgen {this._colour}, {this._seatCount} säten, längden {this._length} och {_engineCount} motorer";
     }
 }

@@ -19,15 +19,15 @@ class Car : Vehicle
         {
             return this._sunroof;
         }
-        init
+        set
         {
-            this._sunroof = Sunroof;
+            this._sunroof = value;
         }
     }
 
     public override string ToString()
     {
-        if (this.Sunroof) return $"En bil med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten med soltak";
-        return $"En bil med registreringsnummret {this.Registry}, färgen {this.Colour}, {this.SeatCount} säten utan soltak";
+        if (this._sunroof) return $"En bil med registreringsnummret {this._registry}, färgen {this._colour}, {this._seatCount} säten med talfönster";
+        return $"En bil med registreringsnummret {this._registry}, färgen {this._colour}, {this._seatCount} säten utan takfönster";
     }
 }
