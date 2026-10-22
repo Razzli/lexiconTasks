@@ -1,0 +1,15 @@
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\bin\Debug\net10.0\OvningSex.exe
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\bin\Debug\net10.0\OvningSex.deps.json
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\bin\Debug\net10.0\OvningSex.runtimeconfig.json
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\bin\Debug\net10.0\OvningSex.dll
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\bin\Debug\net10.0\OvningSex.pdb
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.AssemblyInfoInputs.cache
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.AssemblyInfo.cs
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.csproj.CoreCompileInputs.cache
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.sourcelink.json
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.dll
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\refint\OvningSex.dll
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.pdb
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\OvningSex.genruntimeconfig.cache
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningSex\obj\Debug\net10.0\ref\OvningSex.dll
