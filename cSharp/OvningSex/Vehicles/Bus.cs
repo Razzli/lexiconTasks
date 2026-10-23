@@ -4,6 +4,8 @@ class Bus : Vehicle
 {
     private bool _roofAccess;
     private int _wheelCount;
+    //Used as an identifier for the typecount function in Controller
+    private readonly string _localization = "buss";
 
     public Bus(string Colour, int SeatCount, string Registry, bool RoofAccess, int WheelCount)
     {
@@ -36,6 +38,14 @@ class Bus : Vehicle
         set
         {
             this._wheelCount = value;
+        }
+    }
+
+    public override string Localization
+    {
+        get
+        {
+            return this._localization;
         }
     }
     public override string ToString()

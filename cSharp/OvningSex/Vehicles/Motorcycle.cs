@@ -3,6 +3,8 @@ namespace OvningSex.Vehicles;
 class Motorcycle : Vehicle
 {
     private bool _storageCompartment;
+    //Used as an identifier for the typecount function in Controller
+    private readonly string _localization = "motorcykel";
 
     public Motorcycle(string Colour, int SeatCount, string Registry, bool StorageCompartment)
     {
@@ -23,6 +25,14 @@ class Motorcycle : Vehicle
         set
         {
             this._storageCompartment = value;
+        }
+    }
+
+    public override string Localization
+    {
+        get
+        {
+            return this._localization;
         }
     }
 

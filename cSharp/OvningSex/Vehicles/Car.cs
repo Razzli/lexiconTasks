@@ -3,6 +3,8 @@ namespace OvningSex.Vehicles;
 class Car : Vehicle
 {
     private bool _sunroof;
+    //Used as an identifier for the typecount function in Controller
+    private readonly string _localization = "bil";
 
     public Car(string Colour, int SeatCount, string Registry, bool Sunroof)
     {
@@ -22,6 +24,14 @@ class Car : Vehicle
         set
         {
             this._sunroof = value;
+        }
+    }
+
+    public override string Localization
+    {
+        get
+        {
+            return _localization;
         }
     }
 

@@ -4,6 +4,8 @@ class Boat : Vehicle
 {
     private int _length;
     private int _engineCount;
+     //Used as an identifier for the typecount function in Controller
+    private readonly string _localization = "båt";
 
     public Boat(string Colour, int SeatCount, string Registry, int Length, int EngineCount)
     {
@@ -36,6 +38,14 @@ class Boat : Vehicle
         set
         {
             this._engineCount = value;
+        }
+    }
+    
+    public override string Localization
+    {
+        get
+        {
+            return this._localization;
         }
     }
 

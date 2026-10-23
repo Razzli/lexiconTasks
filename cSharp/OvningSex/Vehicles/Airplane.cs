@@ -4,6 +4,7 @@ class Airplane : Vehicle
 {
     private int _wingspan;
     private int _engineCount;
+    private readonly string _localization = "flygplan";
 
     public Airplane(string Colour, int SeatCount, string Registry, int Wingspan, int EngineCount)
     {
@@ -34,6 +35,14 @@ class Airplane : Vehicle
         set
         {
             this._engineCount = value;
+        }
+    }
+
+    public override string Localization
+    {
+        get
+        {
+            return this._localization;
         }
     }
 

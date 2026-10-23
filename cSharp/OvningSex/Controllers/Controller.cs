@@ -256,10 +256,10 @@ class Controller
                     else if (Amount <= 0) Console.WriteLine("SKAPA ÅTMINSTONE 1 FORDON");
                     else
                     {
-                        Vehicle[] Vehicles = new Vehicle[Amount];
+                        List<Vehicle> Vehicles = new List<Vehicle>();
                         for (int i = 0; i < Amount; i++)
                         {
-                            Vehicles[i] = VehicleCreator();
+                            Vehicles.Add(VehicleCreator());
                         }
                         return new Garage(Size, Vehicles);
                     }
@@ -404,22 +404,18 @@ class Controller
         }
         else
         {
-            Vehicle[] Vehicles = Storage.GetStorage();
-            for (int i = 0; i < Vehicles.Length; i++)
+            foreach (Vehicle item in Storage.GetStorage())
             {
-                Console.WriteLine($"{(i+1)}. {Vehicles[i].ToString()}");
+                Console.WriteLine($"{Storage.GetStorage().IndexOf(item)}. {item.ToString()}");
             }
         }
     }
 
     public static void ListVehicleTypes(Garage Storage)
     {
-        int[] TypeCount = Storage.GetCount();
-        Console.WriteLine("Garaget innehåller: ");
-        Console.WriteLine($"{TypeCount[0]} Flygplan");
-        Console.WriteLine($"{TypeCount[1]} Båtar");
-        Console.WriteLine($"{TypeCount[2]} Bussar");
-        Console.WriteLine($"{TypeCount[3]} Bilar");
-        Console.WriteLine($"{TypeCount[4]} Motorcyklar");
+        foreach (KeyValuePair<string, int> kvp in Storage.GetCount())
+        {
+            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+        }
     }
 }

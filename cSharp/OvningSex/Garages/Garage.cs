@@ -1,25 +1,27 @@
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using OvningSex.Vehicles;
 
 namespace OvningSex.Garages;
 
 class Garage
 {
-    private List<Vehicle> _storage = new List<Vehicle>();
+    private List<Vehicle> _storage;
     private int _size;
-    private Dictionary<Type, int> _typeCount = new Dictionary<Type, int>();
+    private Dictionary<string, int> _typeCount = new Dictionary<string, int>();
     
     public Garage(int Size)
     {
         this._size = Size;
+        _storage = new List<Vehicle>(Size);
     }
 
     public Garage(int Size, List<Vehicle> Vehicles)
     {
         this._size = Size;
-        _storage.Append<Vehicle>(Vehicles.GetRange(0, Vehicles.Count()));
-        //Count();
+        _storage = new List<Vehicle>(Vehicles);
+        foreach (Vehicle item in _storage)
+        {
+            Count(item, true);
+        }
     }
 
     public int GetSize()
@@ -37,7 +39,7 @@ class Garage
         return _storage.Count;
     }
 
-    public Dictionary<Type, int> GetCount()
+    public Dictionary<string, int> GetCount()
     {
         return _typeCount;
     }
@@ -65,8 +67,16 @@ class Garage
 
     public Vehicle GetVehicleByRegistry(string Registry)
     {
-        //Lambda function that finds the vehicle with the correct registry and returns it
+        //Lamer for each function that finds the vehicle with the correct registry
+        foreach (Vehicle item in _storage)
+        {
+            if (item.Registry == Registry) return item;
+        }
+        throw new ArgumentException("Registry does not exist");
+        /**
+        Cooler lambda function that finds the vehicle with the correct registry and returns it
         return _storage.Find(Vehicle => Vehicle.Registry == Registry) ?? throw new ArgumentException("Registry does not exist");
+        **/
     }
 
     public List<Vehicle> GetStorage()
@@ -79,22 +89,23 @@ class Garage
     {
         if (ToAdd)
         {
-           if (_typeCount.ContainsKey(Target.GetType())) _typeCount[Target.GetType()]++;
-           else _typeCount.Add(Target.GetType(), 1); 
+           if (_typeCount.ContainsKey(Target.Localization)) _typeCount[Target.Localization]++;
+           else _typeCount.Add(Target.Localization, 1); 
         }
         else
         {
-            _typeCount[Target.GetType()]--;
-            if (_typeCount[Target.GetType()] == 0) _typeCount.Remove(Target.GetType());
+            _typeCount[Target.Localization]--;
+            if (_typeCount[Target.Localization] == 0) _typeCount.Remove(Target.Localization);
         }
     }
 
 //NOT IMPLEMENTED YET
     public void Sort(int type)
     {
-        for (int i = 0; i < _storedVehiclesAmount-1; i++)
+        Vehicle temp;
+        for (int i = 0; i < _storage.Count-1; i++)
         {
-            for (int j = i+1; j < _storedVehiclesAmount; j++)
+            for (int j = i+1; j < _storage.Count; j++)
             {
                 if (type == 1)
                 {

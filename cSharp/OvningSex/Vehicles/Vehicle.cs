@@ -1,6 +1,6 @@
 namespace OvningSex.Vehicles;
 
-class Vehicle
+abstract class Vehicle
 {
     protected string _registry;
     protected string _colour;
@@ -59,4 +59,7 @@ class Vehicle
             this._seatCount = value;
         }
     }
+
+    //Must be overriden
+    public abstract string Localization{get;}
 }
