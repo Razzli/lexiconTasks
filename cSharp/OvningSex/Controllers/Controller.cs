@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using OvningSex.Garages;
 using OvningSex.Vehicles;
@@ -261,6 +262,8 @@ class Controller
 
     public static bool RegistryCheck(string Registry, List<Vehicle> Vehicles)
     {
+        Regex regex = new Regex("[A-Za-z]{3,3}[0-9]{2,2}[A-Za-z0-9]{1,1}");
+        if (!regex.IsMatch(Registry)) return false;
         foreach (Vehicle item in Vehicles)
         {
             if (item.Registry == Registry) return false;
