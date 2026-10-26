@@ -1,3 +1,4 @@
+using Microsoft.Win32;
 using OvningSex.Garages;
 using OvningSex.Vehicles;
 
@@ -6,8 +7,9 @@ namespace OvningSex.Controllers;
 class Controller
 {
     //TODO MAKE LESS THEN 100 LINES
-    public static Vehicle VehicleCreator()
+    public static Vehicle VehicleCreator(List<Vehicle> Vehicles)
     {
+        
         string Colour, Registry;
         int SeatCount;
         while(true){
@@ -37,15 +39,22 @@ class Controller
                                     Registry = Console.ReadLine();
                                     if (!string.IsNullOrWhiteSpace(Registry))
                                     {
-                                        Console.Write("Ange säten: ");
-                                        SeatCount = Convert.ToInt32(Console.ReadLine());
-                                        Console.Write("Ange vingspann: ");
-                                        int Wingspan = Convert.ToInt32(Console.ReadLine());
-                                        Console.Write("Ange motorantal: ");
-                                        int Engines = Convert.ToInt32(Console.ReadLine());
-                                        Airplane Plane = new Airplane(Colour, SeatCount, Registry, Wingspan, Engines);
-                                        Console.WriteLine($"Du har skapat: {Plane.ToString()}");
-                                        return Plane;
+                                        if (RegistryCheck(Registry, Vehicles))
+                                        {
+                                            Console.Write("Ange säten: ");
+                                            SeatCount = Convert.ToInt32(Console.ReadLine());
+                                            Console.Write("Ange vingspann: ");
+                                            int Wingspan = Convert.ToInt32(Console.ReadLine());
+                                            Console.Write("Ange motorantal: ");
+                                            int Engines = Convert.ToInt32(Console.ReadLine());
+                                            Airplane Plane = new Airplane(Colour, SeatCount, Registry, Wingspan, Engines);
+                                            Console.WriteLine($"Du har skapat: {Plane.ToString()}");
+                                            return Plane;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("ANGE ETT GILTIGT UNIKT REGISTRERINGSNUMMER");
+                                        }
                                     }
                                 }
                             }
@@ -67,15 +76,20 @@ class Controller
                                     Registry = Console.ReadLine();
                                     if (!string.IsNullOrWhiteSpace(Registry))
                                     {
-                                        Console.Write("Ange säten: ");
-                                        SeatCount = Convert.ToInt32(Console.ReadLine());
-                                        Console.Write("Ange Längd: ");
-                                        int Length = Convert.ToInt32(Console.ReadLine());
-                                        Console.Write("Ange motorantal: ");
-                                        int EngineCount = Convert.ToInt32(Console.ReadLine());
-                                        Boat Bot = new Boat(Colour, SeatCount, Registry, Length, EngineCount);
-                                        Console.WriteLine($"Du har skapat: {Bot.ToString()}");
-                                        return Bot;
+                                        if (RegistryCheck(Registry, Vehicles))
+                                            Console.Write("Ange säten: ");
+                                            SeatCount = Convert.ToInt32(Console.ReadLine());
+                                            Console.Write("Ange Längd: ");
+                                            int Length = Convert.ToInt32(Console.ReadLine());
+                                            Console.Write("Ange motorantal: ");
+                                            int EngineCount = Convert.ToInt32(Console.ReadLine());
+                                            Boat Bot = new Boat(Colour, SeatCount, Registry, Length, EngineCount);
+                                            Console.WriteLine($"Du har skapat: {Bot.ToString()}");
+                                            return Bot;
+                                        }
+                                    else
+                                    {
+                                        Console.WriteLine("ANGE ETT GILTIGT UNIKT REGISTRERINGSNUMMER");
                                     }
                                 }
                             }
@@ -96,29 +110,36 @@ class Controller
                                     Registry = Console.ReadLine();
                                     if (!string.IsNullOrWhiteSpace(Registry))
                                     {
-                                        Console.Write("Ange säten: ");
-                                        SeatCount = Convert.ToInt32(Console.ReadLine());
-                                        Console.Write("Ange antal hjul: ");
-                                        int WheelCount = Convert.ToInt32(Console.ReadLine());
-                                        Bus Buss;
-                                        while (true)
+                                        if (RegistryCheck(Registry, Vehicles))
                                         {
-                                            Console.Write("Tak access y/n: ");
-                                            string Answer = Console.ReadLine().ToLower();
-                                            switch (Answer)
+                                            Console.Write("Ange säten: ");
+                                            SeatCount = Convert.ToInt32(Console.ReadLine());
+                                            Console.Write("Ange antal hjul: ");
+                                            int WheelCount = Convert.ToInt32(Console.ReadLine());
+                                            Bus Buss;
+                                            while (true)
                                             {
-                                                case "y":
-                                                    Buss = new Bus(Colour, SeatCount, Registry, true, WheelCount);
-                                                    Console.WriteLine($"Du har skapat: {Buss.ToString()}");
-                                                    return Buss;
-                                                case "n":
-                                                    Buss = new Bus(Colour, SeatCount, Registry, true, WheelCount);
-                                                    Console.WriteLine($"Du har skapat: {Buss.ToString()}");
-                                                    return Buss;
-                                                default:
-                                                    Console.WriteLine("FEL SVAR");
-                                                    break;
+                                                Console.Write("Tak access y/n: ");
+                                                string Answer = Console.ReadLine().ToLower();
+                                                switch (Answer)
+                                                {
+                                                    case "y":
+                                                        Buss = new Bus(Colour, SeatCount, Registry, true, WheelCount);
+                                                        Console.WriteLine($"Du har skapat: {Buss.ToString()}");
+                                                        return Buss;
+                                                    case "n":
+                                                        Buss = new Bus(Colour, SeatCount, Registry, true, WheelCount);
+                                                        Console.WriteLine($"Du har skapat: {Buss.ToString()}");
+                                                        return Buss;
+                                                    default:
+                                                        Console.WriteLine("FEL SVAR");
+                                                        break;
+                                                }
                                             }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("ANGE ETT GILTIGT UNIKT REGISTRERINGSNUMMER");
                                         }
                                     }
                                 }
@@ -140,27 +161,34 @@ class Controller
                                     Registry = Console.ReadLine();
                                     if (!string.IsNullOrWhiteSpace(Registry))
                                     {
-                                        Console.Write("Ange säten: ");
-                                        SeatCount = Convert.ToInt32(Console.ReadLine());
-                                        Car Bil;
-                                        while (true)
+                                        if (RegistryCheck(Registry, Vehicles))
                                         {
-                                            Console.Write("Takfönster y/n: ");
-                                            string Answer = Console.ReadLine().ToLower();
-                                            switch (Answer)
+                                            Console.Write("Ange säten: ");
+                                            SeatCount = Convert.ToInt32(Console.ReadLine());
+                                            Car Bil;
+                                            while (true)
                                             {
-                                                case "y":
-                                                    Bil = new Car(Colour, SeatCount, Registry, true);
-                                                    Console.WriteLine($"Du har skapat: {Bil.ToString()}");
-                                                    return Bil;
-                                                case "n":
-                                                    Bil = new Car(Colour, SeatCount, Registry, false);
-                                                    Console.WriteLine($"Du har skapat: {Bil.ToString()}");
-                                                    return Bil;
-                                                default:
-                                                    Console.WriteLine("FEL SVAR");
-                                                    break;
+                                                Console.Write("Takfönster y/n: ");
+                                                string Answer = Console.ReadLine().ToLower();
+                                                switch (Answer)
+                                                {
+                                                    case "y":
+                                                        Bil = new Car(Colour, SeatCount, Registry, true);
+                                                        Console.WriteLine($"Du har skapat: {Bil.ToString()}");
+                                                        return Bil;
+                                                    case "n":
+                                                        Bil = new Car(Colour, SeatCount, Registry, false);
+                                                        Console.WriteLine($"Du har skapat: {Bil.ToString()}");
+                                                        return Bil;
+                                                    default:
+                                                        Console.WriteLine("FEL SVAR");
+                                                        break;
+                                                }
                                             }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("ANGE ETT GILTIGT UNIKT REGISTRERINGSNUMMER");
                                         }
                                     }
                                 }
@@ -182,27 +210,34 @@ class Controller
                                     Registry = Console.ReadLine();
                                     if (!string.IsNullOrWhiteSpace(Registry))
                                     {
-                                        Console.Write("Ange säten: ");
-                                        SeatCount = Convert.ToInt32(Console.ReadLine());
-                                        Motorcycle Motorcykel;
-                                        while (true)
+                                        if (RegistryCheck(Registry, Vehicles))
                                         {
-                                            Console.Write("Förvaring y/n: ");
-                                            string Answer = Console.ReadLine().ToLower();
-                                            switch (Answer)
+                                            Console.Write("Ange säten: ");
+                                            SeatCount = Convert.ToInt32(Console.ReadLine());
+                                            Motorcycle Motorcykel;
+                                            while (true)
                                             {
-                                                case "y":
-                                                    Motorcykel = new Motorcycle(Colour, SeatCount, Registry, true);
-                                                    Console.WriteLine($"Du har skapat: {Motorcykel.ToString()}");
-                                                    return Motorcykel;
-                                                case "n":
-                                                    Motorcykel = new Motorcycle(Colour, SeatCount, Registry, false);
-                                                    Console.WriteLine($"Du har skapat: {Motorcykel.ToString()}");
-                                                    return Motorcykel;
-                                                default:
-                                                    Console.WriteLine("FEL SVAR");
-                                                    break;
+                                                Console.Write("Förvaring y/n: ");
+                                                string Answer = Console.ReadLine().ToLower();
+                                                switch (Answer)
+                                                {
+                                                    case "y":
+                                                        Motorcykel = new Motorcycle(Colour, SeatCount, Registry, true);
+                                                        Console.WriteLine($"Du har skapat: {Motorcykel.ToString()}");
+                                                        return Motorcykel;
+                                                    case "n":
+                                                        Motorcykel = new Motorcycle(Colour, SeatCount, Registry, false);
+                                                        Console.WriteLine($"Du har skapat: {Motorcykel.ToString()}");
+                                                        return Motorcykel;
+                                                    default:
+                                                        Console.WriteLine("FEL SVAR");
+                                                        break;
+                                                }
                                             }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("ANGE ETT GILTIGT UNIKT REGISTRERINGSNUMMER");
                                         }
                                     }
                                 }
@@ -222,6 +257,15 @@ class Controller
                 Console.WriteLine("Please follow instructions as written");
             }
         }
+    }
+
+    public static bool RegistryCheck(string Registry, List<Vehicle> Vehicles)
+    {
+        foreach (Vehicle item in Vehicles)
+        {
+            if (item.Registry == Registry) return false;
+        }
+        return true;
     }
     public static Garage EmptyGarageCreator()
     {
@@ -259,7 +303,7 @@ class Controller
                         List<Vehicle> Vehicles = new List<Vehicle>();
                         for (int i = 0; i < Amount; i++)
                         {
-                            Vehicles.Add(VehicleCreator());
+                            Vehicles.Add(VehicleCreator(Vehicles));
                         }
                         return new Garage(Size, Vehicles);
                     }
@@ -281,7 +325,7 @@ class Controller
             string Registry = Console.ReadLine();
             if (!string.IsNullOrEmpty(Registry))
             {
-                Registry = Registry.ToUpper();
+                Registry = Registry.ToLower();
                 Vehicle Found = Storage.GetVehicleByRegistry(Registry);
                 return Found;
             }
@@ -297,7 +341,7 @@ class Controller
         if (Storage.GetFreeSpace() == 0) Console.WriteLine("GARAGE FULLT!");
         else
         {
-            Storage.AddVehicle(VehicleCreator());
+            Storage.AddVehicle(VehicleCreator(Storage.GetStorage()));
         }
     }
 
@@ -337,36 +381,73 @@ class Controller
         
     }
 
-    public static Vehicle VehicleSearch(Garage Storage)
+    public static bool VehicleSearch(Garage Storage)
     {
         while (true)
         {
-            Console.Write("Ange registreringsnummer: ");
-            string input = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(input))
+            Console.WriteLine("SÖKFUNKTION (LÄMNA BLANKT FÖR ATT INTE SÖKA PÅ EGENSKAP)");
+            Console.Write("Ange färg: ");
+            string inputC = Console.ReadLine();
+            Console.Write("Ange sätesantal: ");
+            string inputS = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(inputC) && string.IsNullOrWhiteSpace(inputS)) Console.WriteLine("ANGE ÅTMINSTONE EN EGENSKAP");
+            else
             {
-                input = input.ToLower();
-                try
+                List<Vehicle> Vehicles = Storage.GetStorage();
+                bool found = false;
+                if (string.IsNullOrWhiteSpace(inputS))
                 {
-                    Vehicle Target = Storage.GetVehicleByRegistry(input);
-                    Console.WriteLine($"SÖKT FORDON: {Target.ToString()}");
-                    return Target;
+                    inputC = inputC.ToLower();
+                    for (int i = 0; i < Vehicles.Count; i++)
+                    {
+                        if (Vehicles[i].Colour == inputC) Console.WriteLine($"{i}. {Vehicles[i].ToString()}");
+                        found = true;
+                    }
+                    if (!found) Console.WriteLine("INGA FORDON HITTADES");
+                    return true;
                 }
-                catch (ArgumentException)
+                else
                 {
-                    Console.WriteLine("Vänligen ange ett giltigt registreringsnummer!");
+                    try
+                    {
+                        int Seats = Convert.ToInt32(inputS);
+                        if (string.IsNullOrWhiteSpace(inputC))
+                        {
+                            for (int i = 0; i < Vehicles.Count; i++)
+                            {
+                                if (Vehicles[i].SeatCount == Seats) Console.WriteLine($"{i}. {Vehicles[i].ToString()}");
+                                found = true;
+                            }
+                            if (!found) Console.WriteLine("INGA FORDON HITTADES");
+                            return true;
+                        }
+                        else
+                        {
+                            inputC = inputC.ToLower();
+                            for (int i = 0; i < Vehicles.Count; i++)
+                            {
+                                if (Vehicles[i].SeatCount == Seats && Vehicles[i].Colour == inputC) Console.WriteLine($"{i}. {Vehicles[i].ToString()}");
+                                Console.WriteLine("Inga fordon hittades!");
+                            }
+                            if (!found) Console.WriteLine("INGA FORDON HITTADES");
+                            return true;
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("ANGE SÄTESANTAL I INTEGERVÄRDE");
+                    }
                 }
             }
-            else Console.WriteLine("Vängligen ange ett giltigt registreringsnummer!");
         }
     }
 
     public static void VehicleSort(Garage Storage)
     {
-        /**
         if (Storage.GetUsedSpace() > 1)
-        {
-            while(true){
+        {   
+            while(true)
+            {
                 try
                 {
                     Console.WriteLine("Vad vill du sortera på: ");
@@ -377,14 +458,14 @@ class Controller
                     int answer = Convert.ToInt32(Console.ReadLine());
                     if (answer < 1) Console.WriteLine("Ge ett giltigt tal");
                     else if (answer > 3) Console.WriteLine("Ge ett giltigt tal");
-                    else{
-                        Storage.Sort(answer);
-                        break;
-                    }
+                else{
+                    Storage.Sort(answer);
+                    break;
+                }
                 }
                 catch (FormatException)
                 {
-                Console.WriteLine("Please follow instructions as written");
+                    Console.WriteLine("Please follow instructions as written");
                 }
             }
         }
@@ -392,8 +473,6 @@ class Controller
         {
             Console.WriteLine("För få fordon för sortering");
         }
-        **/
-        Console.WriteLine("EJ IMPLEMENTERAD");
     }
 
     public static void ListVehicles(Garage Storage)

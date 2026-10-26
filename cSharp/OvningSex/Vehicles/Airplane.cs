@@ -4,6 +4,7 @@ class Airplane : Vehicle
 {
     private int _wingspan;
     private int _engineCount;
+    //Used as a identifier for the typecount function in Controller
     private readonly string _localization = "flygplan";
 
     public Airplane(string Colour, int SeatCount, string Registry, int Wingspan, int EngineCount)

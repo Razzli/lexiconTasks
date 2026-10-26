@@ -1,3 +1,4 @@
+using System.Data.SqlTypes;
 using OvningSex.Vehicles;
 
 namespace OvningSex.Garages;
@@ -99,25 +100,24 @@ class Garage
         }
     }
 
-//NOT IMPLEMENTED YET
+//A bit slow but works
     public void Sort(int type)
     {
         Vehicle temp;
+        bool flip = false;
         for (int i = 0; i < _storage.Count-1; i++)
         {
             for (int j = i+1; j < _storage.Count; j++)
             {
-                if (type == 1)
+                if (type == 1 && !_storage[i].CompareColour(_storage[j])) flip = true;
+                else if (type == 2 && !_storage[i].CompareSeat(_storage[j])) flip = true;
+                else if (type == 3 && !_storage[i].CompareRegistry(_storage[j])) flip = true;
+                if (flip)
                 {
-                    
-                }
-                else if (type == 2)
-                {
-                    
-                }
-                else if (type == 3)
-                {
-                    
+                    temp = _storage[i];
+                    _storage[i] = _storage[j];
+                    _storage[j] = temp;
+                    flip = false;
                 }
             }
         }

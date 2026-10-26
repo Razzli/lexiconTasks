@@ -16,9 +16,10 @@ class View
         "4. TA BORT ETT FORDON\n",
         "5. SORTERA FORDON\n",
         "6. SÖK FORDON EFTER EGENSKAP\n",
-        "7. SKAPA ETT NYTT TOMT GARAGE\n",
-        "8. SKAPA ETT NYTT POPULERAT GARAGE\n",
-        "9. AVSLUTA\n",
+        "7. SÖK FORDON EFTER REGISTRERINGSNUMMER\n",
+        "8. SKAPA ETT NYTT TOMT GARAGE\n",
+        "9. SKAPA ETT NYTT POPULERAT GARAGE\n",
+        "10. AVSLUTA\n",
         "ANGE INPUT: "
     ];
 
@@ -89,12 +90,16 @@ class View
                         else Console.WriteLine("Garaget är tomt!");
                         break;
                     case 7:
-                        Storage = Controller.EmptyGarageCreator();
+                        if (Storage.GetUsedSpace() != 0)Console.WriteLine(Controller.RegistryFind(Storage).ToString());
+                        else Console.WriteLine("Garaget är tomt!");
                         break;
                     case 8:
-                        Storage = Controller.GarageCreator();
+                        Storage = Controller.EmptyGarageCreator();
                         break;
                     case 9:
+                        Storage = Controller.GarageCreator();
+                        break;
+                    case 10:
                         Console.WriteLine("AVSLUTAR");
                         Running = false;
                         break;
