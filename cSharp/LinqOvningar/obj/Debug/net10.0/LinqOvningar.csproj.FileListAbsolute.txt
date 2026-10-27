@@ -1,0 +1,15 @@
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\bin\Debug\net10.0\LinqOvningar.exe
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\bin\Debug\net10.0\LinqOvningar.deps.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\bin\Debug\net10.0\LinqOvningar.runtimeconfig.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\bin\Debug\net10.0\LinqOvningar.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\bin\Debug\net10.0\LinqOvningar.pdb
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.AssemblyInfoInputs.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.AssemblyInfo.cs
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.csproj.CoreCompileInputs.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.sourcelink.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\refint\LinqOvningar.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.pdb
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\LinqOvningar.genruntimeconfig.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\LinqOvningar\obj\Debug\net10.0\ref\LinqOvningar.dll
