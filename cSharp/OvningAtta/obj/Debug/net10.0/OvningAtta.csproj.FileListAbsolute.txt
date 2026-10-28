@@ -1,0 +1,15 @@
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\bin\Debug\net10.0\OvningAtta.exe
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\bin\Debug\net10.0\OvningAtta.deps.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\bin\Debug\net10.0\OvningAtta.runtimeconfig.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\bin\Debug\net10.0\OvningAtta.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\bin\Debug\net10.0\OvningAtta.pdb
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.AssemblyInfoInputs.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.AssemblyInfo.cs
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.csproj.CoreCompileInputs.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.sourcelink.json
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\refint\OvningAtta.dll
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.pdb
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\OvningAtta.genruntimeconfig.cache
+C:\Users\lindh\Desktop\lexiconTasks\cSharp\OvningAtta\obj\Debug\net10.0\ref\OvningAtta.dll

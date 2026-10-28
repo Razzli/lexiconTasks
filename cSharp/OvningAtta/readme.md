@@ -1,0 +1,2 @@
+#FÖRDELEN MED INTERFACET
+Fördelen med interfacet är att vi får ett ramverk för vad en specifik klass ska innehålla, och att programmet säger till när det saknas. Detta är väldigt användbart ifall man exempelvis ska skapa en entitetsklass i ett spel och behöver hålla koll på vad varje klass behöver implementera. Lite som skillnaden mellan att improvisera och följa ett recept när man lagar mat.
