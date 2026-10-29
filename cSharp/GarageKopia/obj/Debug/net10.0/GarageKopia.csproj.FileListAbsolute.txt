@@ -1,0 +1,15 @@
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\bin\Debug\net10.0\GarageKopia.exe
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\bin\Debug\net10.0\GarageKopia.deps.json
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\bin\Debug\net10.0\GarageKopia.runtimeconfig.json
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\bin\Debug\net10.0\GarageKopia.dll
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\bin\Debug\net10.0\GarageKopia.pdb
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.AssemblyInfoInputs.cache
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.AssemblyInfo.cs
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.csproj.CoreCompileInputs.cache
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.sourcelink.json
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.dll
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\refint\GarageKopia.dll
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.pdb
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\GarageKopia.genruntimeconfig.cache
+c:\Users\lindh\Desktop\lexiconTasks\cSharp\GarageKopia\obj\Debug\net10.0\ref\GarageKopia.dll
