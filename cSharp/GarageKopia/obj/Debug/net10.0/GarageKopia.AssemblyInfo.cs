@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GarageKopia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2217a9cc5698f099ca9aff2f0a6811cef2b03670")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85282096944e96de23bc9c50b2786c8be6b96e7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("GarageKopia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GarageKopia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
