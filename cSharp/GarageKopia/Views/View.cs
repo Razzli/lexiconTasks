@@ -7,7 +7,14 @@ namespace GarageKopia.Views;
 class View
 {
     private Garage Storage;
-    private string[] menu = [
+    private readonly string[] StartMenu = [
+        "Vänligen skapa ett garage:\n",
+        "1. För att skapa ett tomt garage\n",
+        "2. För ett populerat garage\n",
+        "3. För att skapa ett slumpat garage\n",
+        "Ange input: "
+    ];
+    private readonly string[] Menu = [
         "DU HAR ETT GARAGE\n",
         "DU KAN GÖRA FÖLJANDE:\n",
         "1. LISTA FORDON\n",
@@ -19,7 +26,8 @@ class View
         "7. SÖK FORDON EFTER REGISTRERINGSNUMMER\n",
         "8. SKAPA ETT NYTT TOMT GARAGE\n",
         "9. SKAPA ETT NYTT POPULERAT GARAGE\n",
-        "10. AVSLUTA\n",
+        "10. SKAPA ETT NYTT SLUMPAT GARAGE\n",
+        "11. AVSLUTA\n",
         "ANGE INPUT: "
     ];
 
@@ -30,37 +38,34 @@ class View
         bool Running = true;
         while (Running)
         {
-            Console.WriteLine("Vänligen skapa ett garage:");
-            Console.WriteLine("1. För att skapa ett tomt garage");
-            Console.WriteLine("2. För ett populerat garage");
-            Console.Write("Ange input: ");
-            try
+            foreach (string item in StartMenu)
             {
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
-                {
-                    case 1:
-                        Storage = Controller.EmptyGarageCreator();
-                        Running = false;
-                        break;
-                    case 2:
-                        Storage = Controller.GarageCreator();
-                        Running = false;
-                        break;
-                    default:
-                        Console.WriteLine("ANGE 1 ELLER 2! STARTAR OM");
-                        break;
-                }
+                Console.Write(item);
             }
-            catch (FormatException)
+            int choice = IntegerInputHandler.Read();
+            switch (choice)
             {
-                Console.WriteLine("FEL! ANGE TAL I INTEGERFORMAT");
+                case 1:
+                    Storage = Controller.EmptyGarageCreator();
+                    Running = false;
+                    break;
+                case 2:
+                    Storage = Controller.GarageCreator();
+                    Running = false;
+                    break;
+                case 3:
+                    Storage = Controller.RandomGarageCreator();
+                    Running = false;
+                    break;
+                default:
+                    Console.WriteLine("ANGE 1 ELLER 2! STARTAR OM");
+                    break;
             }
         }
         Running = true;
         while (Running)
         {
-            foreach (string item in menu)
+            foreach (string item in Menu)
             {
                 Console.Write(item);
             }
@@ -90,8 +95,15 @@ class View
                         else Console.WriteLine("Garaget är tomt!");
                         break;
                     case 7:
-                        if (Storage.GetUsedSpace() != 0)Console.WriteLine(Controller.RegistryFind(Storage).ToString());
-                        else Console.WriteLine("Garaget är tomt!");
+                        try
+                        {
+                            if (Storage.GetUsedSpace() != 0)Console.WriteLine(Controller.RegistryFind(Storage).ToString());
+                            else Console.WriteLine("Garaget är tomt!");
+                        }
+                        catch (ArgumentException ae)
+                        {
+                            Console.WriteLine(ae.Message);
+                        }
                         break;
                     case 8:
                         Storage = Controller.EmptyGarageCreator();
@@ -100,6 +112,9 @@ class View
                         Storage = Controller.GarageCreator();
                         break;
                     case 10:
+                        Storage = Controller.RandomGarageCreator();
+                        break;
+                    case 11:
                         Console.WriteLine("AVSLUTAR");
                         Running = false;
                         break;

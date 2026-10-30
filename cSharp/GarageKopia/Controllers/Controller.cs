@@ -10,49 +10,65 @@ class Controller
         while (true)
         {
             Console.Write("Ange önskad garagestorlek: ");
-            try
-            {
-                int choice = Convert.ToInt32(Console.ReadLine());
-                if (choice > 0) return new Garage(choice);
-                Console.WriteLine("Garagestorlek måste vara större än 0");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("FEL! ANGE TAL I INTEGERFORMAT");
-            }
+            int choice = IntegerInputHandler.Read();
+            if (choice > 0) return new Garage(choice);
+            Console.WriteLine("Garagestorlek måste vara större än 0");
         }
     }
     public static Garage GarageCreator()
     {
         while (true){
-            try
+            Console.Write("Ange önskad storlek på garaget: ");
+            int Size = IntegerInputHandler.Read();
+            if (Size < 1) Console.WriteLine("STORLEK MÅSTE VARA STÖRRE ÄN 0");
+            else
             {
-                Console.Write("Ange önskad storlek på garaget: ");
-                int Size = Convert.ToInt32(Console.ReadLine());
-                if (Size < 1) Console.WriteLine("STORLEK MÅSTE VARA STÖRRE ÄN 0");
+                Console.Write("Ange antal fordon du vill skapa: ");
+                int Amount = IntegerInputHandler.Read();
+                if (Amount > Size) Console.WriteLine("DU KAN INTE SKAPA FLER FORDON ÄN PLATSER");
+                else if (Amount <= 0) Console.WriteLine("SKAPA ÅTMINSTONE 1 FORDON");
                 else
                 {
-                    Console.Write("Ange antal fordon du vill skapa: ");
-                    int Amount = Convert.ToInt32(Console.ReadLine());
-                    if (Amount > Size) Console.WriteLine("DU KAN INTE SKAPA FLER FORDON ÄN PLATSER");
-                    else if (Amount <= 0) Console.WriteLine("SKAPA ÅTMINSTONE 1 FORDON");
-                    else
+                    List<Vehicle> Vehicles = new List<Vehicle>();
+                    for (int i = 0; i < Amount; i++)
                     {
-                        List<Vehicle> Vehicles = new List<Vehicle>();
-                        for (int i = 0; i < Amount; i++)
-                        {
-                            Vehicles.Add(VehicleCreator.Create(Vehicles));
-                        }
-                        return new Garage(Size, Vehicles);
+                        Vehicles.Add(VehicleCreator.Create(Vehicles));
                     }
+                    return new Garage(Size, Vehicles);
                 }
             }
-            catch (FormatException)
+        }
+    }
+
+    public static Garage RandomGarageCreator()
+    {
+        while (true)
+        {
+            Console.Write("Ange önskad storlek på garaget: ");
+            int Size = IntegerInputHandler.Read();
+            if (Size > 0)
             {
-                Console.WriteLine("ANGE ETT GILTIGT INTEGERTAL");
+                Console.Write("Ange önskat antal fordon: ");
+                int Amount = IntegerInputHandler.Read();
+                if (Amount >= 0 && Size >= Amount)
+                {
+                    List<Vehicle> Vehicles = new List<Vehicle>();
+                    for (int i = 0; i < Amount; i++)
+                    {
+                        Vehicles.Add(VehicleRandomizer.Create(Vehicles));
+                    }
+                    return new Garage(Size, Vehicles);
+                }
+                else
+                {
+                    Console.WriteLine("ANTAL FORDON MÅSTE VARA FLER ÄN -1 OCH INTE FLER ÄN GARAGETS STORLEK");
+                }
+            }
+            else
+            {
+                Console.WriteLine("GARAGET MÅSTE VARA STÖRRE ÄN 1");
             }
         }
-        
     }
 
     public static Vehicle RegistryFind(Garage Storage)
@@ -60,17 +76,9 @@ class Controller
         Console.Write("Vänligen ange registreringsnummer: ");
         while (true)
         {
-            string Registry = Console.ReadLine();
-            if (!string.IsNullOrEmpty(Registry))
-            {
-                Registry = Registry.ToLower();
-                Vehicle Found = Storage.GetVehicleByRegistry(Registry);
-                return Found;
-            }
-            else
-            {
-                Console.WriteLine("ANGE ETT GILTIGT REGISTRERINGSNUMMER");
-            }
+            string? Registry = StringInputHandler.Read().ToLower();
+            Vehicle Found = Storage.GetVehicleByRegistry(Registry);
+            return Found;
         }
     }
 
@@ -91,21 +99,14 @@ class Controller
             int size = Storage.GetUsedSpace();
             if (size != 0)
             {
-                try
+                Console.Write($"Välj fordon 1-{size}");
+                int index = IntegerInputHandler.Read();
+                if (index > size) Console.WriteLine("Givet tal är för stort");
+                if (index < 1) Console.WriteLine("Givet tal är för litet");
+                else
                 {
-                    Console.Write($"Välj fordon 1-{size}");
-                    int index = Convert.ToInt32(Console.ReadLine());
-                    if (index > size) Console.WriteLine("Givet tal är för stort");
-                    if (index < 1) Console.WriteLine("Givet tal är för litet");
-                    else
-                    {
-                        Storage.RemoveVehicle(index-1);
-                        Running = false;
-                    }
-                }
-                catch (System.Exception)
-                {
-                    Console.WriteLine("Given input måste vara integer!");
+                    Storage.RemoveVehicle(index-1);
+                    Running = false;
                 }
                 
             }
@@ -125,9 +126,9 @@ class Controller
         {
             Console.WriteLine("SÖKFUNKTION (LÄMNA BLANKT FÖR ATT INTE SÖKA PÅ EGENSKAP)");
             Console.Write("Ange färg: ");
-            string inputC = Console.ReadLine();
+            string? inputC = Console.ReadLine();
             Console.Write("Ange sätesantal: ");
-            string inputS = Console.ReadLine();
+            string? inputS = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(inputC) && string.IsNullOrWhiteSpace(inputS)) Console.WriteLine("ANGE ÅTMINSTONE EN EGENSKAP");
             else
             {
@@ -186,24 +187,17 @@ class Controller
         {   
             while(true)
             {
-                try
-                {
-                    Console.WriteLine("Vad vill du sortera på: ");
-                    Console.WriteLine("1. Färg");
-                    Console.WriteLine("2. Antal säten");
-                    Console.WriteLine("3. Registreringsnummer");
-                    Console.Write("Här: ");
-                    int answer = Convert.ToInt32(Console.ReadLine());
-                    if (answer < 1) Console.WriteLine("Ge ett giltigt tal");
-                    else if (answer > 3) Console.WriteLine("Ge ett giltigt tal");
+                Console.WriteLine("Vad vill du sortera på: ");
+                Console.WriteLine("1. Färg");
+                Console.WriteLine("2. Antal säten");
+                Console.WriteLine("3. Registreringsnummer");
+                Console.Write("Här: ");
+                int answer = IntegerInputHandler.Read();
+                if (answer < 1) Console.WriteLine("Ge ett giltigt tal");
+                else if (answer > 3) Console.WriteLine("Ge ett giltigt tal");
                 else{
                     Storage.Sort(answer);
                     break;
-                }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Please follow instructions as written");
                 }
             }
         }
