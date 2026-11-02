@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OvningSex")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7992635b83e8e137b13ce669f2372303e74dafb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8afc6ba5168c98225e3bcc2f8dd7ff58f760a94")]
 [assembly: System.Reflection.AssemblyProductAttribute("OvningSex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OvningSex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

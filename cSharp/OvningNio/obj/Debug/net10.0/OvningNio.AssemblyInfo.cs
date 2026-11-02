@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OvningNio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b785edf8bef137ab67c8e266a8486f683f2fe519")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8afc6ba5168c98225e3bcc2f8dd7ff58f760a94")]
 [assembly: System.Reflection.AssemblyProductAttribute("OvningNio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OvningNio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

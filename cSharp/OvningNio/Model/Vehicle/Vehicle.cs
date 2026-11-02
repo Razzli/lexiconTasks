@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace OvningNio.Model.Vehicle;
 
 abstract class Vehicle : IVehicle
@@ -24,19 +22,19 @@ abstract class Vehicle : IVehicle
         set => _seatCount = value;
     }
 
-    public IVehicle CompareColour(IVehicle Vehicle)
+    public bool CompareColour(IVehicle Target)
     {
-        throw new NotImplementedException();
+        return string.Compare(this.Colour, Target.Colour) >= 0;
     }
 
-    public IVehicle CompareRegistry(IVehicle Vehicle)
+    public bool CompareRegistry(IVehicle Target)
     {
-        throw new NotImplementedException();
+        return string.Compare(this.Registry, Target.Registry) >= 0;
     }
 
-    public IVehicle CompareSeatCount(IVehicle Vehicle)
+    public bool CompareSeatCount(IVehicle Target)
     {
-        throw new NotImplementedException();
+        return this.SeatCount >= Target.SeatCount;
     }
 
     public abstract override string ToString();
