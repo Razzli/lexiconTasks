@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle.MotorCycle;
+namespace OvningNio.Model.Vehicles.MotorCycle;
 
 interface IMotorCycle
 {

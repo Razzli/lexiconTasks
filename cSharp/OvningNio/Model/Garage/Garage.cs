@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Xml;
-
+using OvningNio.Model.Vehicles;
 namespace OvningNio.Model.Garage;
 
-class Garage<T> : IGarage<T>, IEnumerable<T>
+class Garage<T> : IEnumerable<T> where T : Vehicle
 {
     private readonly int _size;
     private List<T> _storage;
@@ -30,20 +29,15 @@ class Garage<T> : IGarage<T>, IEnumerable<T>
         return true;
     }
 
+    public IEnumerator<T> GetEnumerator()
+    {
+        return _storage.GetEnumerator();
+    }
+
     public bool Remove(T Target)
     {
         if (_storage.Contains(Target)) return _storage.Remove(Target);
         else return false;
-    }
-
-    public void Sort()
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerator<T> GetEnumerator()
-    {
-        return _storage.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

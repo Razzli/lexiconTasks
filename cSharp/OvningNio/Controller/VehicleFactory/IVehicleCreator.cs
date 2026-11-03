@@ -1,9 +1,9 @@
 using OvningNio.Model.Garage;
-using OvningNio.Model.Vehicle;
+using OvningNio.Model.Vehicles;
 
 namespace OvningNio.Controller.VehicleFactory;
 
 interface IVehicleCreator
 {
-    public Vehicle Create(Garage<Vehicle> Storage);
+    public Vehicle Create(List<Vehicle> Storage);
 }

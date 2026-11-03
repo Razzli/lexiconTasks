@@ -16,13 +16,12 @@ class Menus : IMainMenu, IStartMenu
         "2. LISTA FORDONSTYPER\n",
         "3. LÄGG TILL ETT FORDON\n",
         "4. TA BORT ETT FORDON\n",
-        "5. SORTERA FORDON\n",
-        "6. SÖK FORDON EFTER EGENSKAP\n",
-        "7. SÖK FORDON EFTER REGISTRERINGSNUMMER\n",
-        "8. SKAPA ETT NYTT TOMT GARAGE\n",
-        "9. SKAPA ETT NYTT POPULERAT GARAGE\n",
-        "10. SKAPA ETT NYTT SLUMPAT GARAGE\n",
-        "11. AVSLUTA\n",
+        "5. SÖK FORDON EFTER EGENSKAP\n",
+        "6. SÖK FORDON EFTER REGISTRERINGSNUMMER\n",
+        "7. SKAPA ETT NYTT TOMT GARAGE\n",
+        "8. SKAPA ETT NYTT POPULERAT GARAGE\n",
+        "9. SKAPA ETT NYTT SLUMPAT GARAGE\n",
+        "10. AVSLUTA\n",
         "ANGE INPUT: "
     ];
 

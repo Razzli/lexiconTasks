@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle.Bus;
+namespace OvningNio.Model.Vehicles.Bus;
 
 interface IBus
 {

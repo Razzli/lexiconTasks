@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle;
+namespace OvningNio.Model.Vehicles;
 
 abstract class Vehicle : IVehicle
 {
@@ -21,22 +21,23 @@ abstract class Vehicle : IVehicle
         get => _seatCount;
         set => _seatCount = value;
     }
-
-    public bool CompareColour(IVehicle Target)
+    //https://learn.microsoft.com/en-us/dotnet/api/system.comparison-1?view=net-10.0
+    static public int CompareColour(IVehicle Vehicle1, IVehicle Vehicle2)
     {
-        return string.Compare(this.Colour, Target.Colour) >= 0;
+        return string.Compare(Vehicle1.Colour, Vehicle2.Colour);
     }
 
-    public bool CompareRegistry(IVehicle Target)
+    static public int CompareRegistry(IVehicle Vehicle1, IVehicle Vehicle2)
     {
-        return string.Compare(this.Registry, Target.Registry) >= 0;
+        return string.Compare(Vehicle1.Registry, Vehicle2.Registry);
     }
 
-    public bool CompareSeatCount(IVehicle Target)
+    static public int CompareSeatCount(IVehicle Vehicle1, IVehicle Vehicle2)
     {
-        return this.SeatCount >= Target.SeatCount;
+        return Vehicle1.SeatCount.CompareTo(Vehicle2.SeatCount);
     }
 
     public abstract override string ToString();
+
     public abstract string Localization{get;}
 }

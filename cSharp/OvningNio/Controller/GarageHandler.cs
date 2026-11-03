@@ -1,8 +1,7 @@
-using Microsoft.Win32;
 using OvningNio.Controller.Input;
 using OvningNio.Controller.VehicleFactory;
 using OvningNio.Model.Garage;
-using OvningNio.Model.Vehicle;
+using OvningNio.Model.Vehicles;
 
 namespace OvningNio.Controller;
 
@@ -25,12 +24,58 @@ class GarageHandler : IGarageHandler
 
     public Garage<Vehicle> GarageCreator()
     {
-        throw new NotImplementedException();
+        while (true){
+            Console.Write("Ange önskad storlek på garaget: ");
+            int Size = IntReader.Read();
+            if (Size < 1) Console.WriteLine("STORLEK MÅSTE VARA STÖRRE ÄN 0");
+            else
+            {
+                Console.Write("Ange antal fordon du vill skapa: ");
+                int Amount = IntReader.Read();
+                if (Amount > Size) Console.WriteLine("DU KAN INTE SKAPA FLER FORDON ÄN PLATSER");
+                else if (Amount <= 0) Console.WriteLine("SKAPA ÅTMINSTONE 1 FORDON");
+                else
+                {
+                    List<Vehicle> Vehicles = new List<Vehicle>();
+                    for (int i = 0; i < Amount; i++)
+                    {
+                        Vehicles.Add(VehicleBuilder.Create(Vehicles));
+                    }
+                    return new Garage<Vehicle>(Vehicles, Size);
+                }
+            }
+        }
     }
 
     public Garage<Vehicle> RGarageCreator()
     {
-        throw new NotImplementedException();
+        while (true)
+        {
+            Console.Write("Ange önskad storlek på garaget: ");
+            int Size = IntReader.Read();
+            if (Size > 0)
+            {
+                Console.Write("Ange önskat antal fordon: ");
+                int Amount = IntReader.Read();
+                if (Amount >= 0 && Size >= Amount)
+                {
+                    List<Vehicle> Vehicles = [];
+                    for (int i = 0; i < Amount; i++)
+                    {
+                        Vehicles.Add(RandomVehicle.Create(Vehicles));
+                    }
+                    return new Garage<Vehicle>(Vehicles, Size);
+                }
+                else
+                {
+                    Console.WriteLine("ANTAL FORDON MÅSTE VARA FLER ÄN -1 OCH INTE FLER ÄN GARAGETS STORLEK");
+                }
+            }
+            else
+            {
+                Console.WriteLine("GARAGET MÅSTE VARA STÖRRE ÄN 1");
+            }
+        }
     }
 
     public void ListVehicles(Garage<Vehicle> Garage)
@@ -50,9 +95,10 @@ class GarageHandler : IGarageHandler
         }
     }
 
+    //Hidden gateway to 200+ lines of code i've lost understanding of
     public void VehicleAdd(Garage<Vehicle> Garage)
     {
-        throw new NotImplementedException();
+        Garage.Add(VehicleBuilder.Create(Garage.Storage));
     }
 
     public void VehicleRemove(Garage<Vehicle> Garage)
@@ -67,7 +113,7 @@ class GarageHandler : IGarageHandler
 
     public void VehicleSearch(Garage<Vehicle> Garage)
     {
-        throw new NotImplementedException();
+        
     }
 
     public void RegistryFind(Garage<Vehicle> Garage)
@@ -81,10 +127,5 @@ class GarageHandler : IGarageHandler
             Console.WriteLine($"Fordon hittat på index {Garage.Storage.IndexOf(Target)}");
             Console.WriteLine(Target.ToString());
         }
-    }
-
-    public void VehicleSort(Garage<Vehicle> Garage)
-    {
-        throw new NotImplementedException();
     }
 }

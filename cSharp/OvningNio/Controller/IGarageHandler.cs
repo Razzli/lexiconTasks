@@ -1,4 +1,4 @@
-using OvningNio.Model.Vehicle;
+using OvningNio.Model.Vehicles;
 using OvningNio.Model.Garage;
 
 namespace OvningNio.Controller;
@@ -13,7 +13,6 @@ interface IGarageHandler
     void VehicleAdd(Garage<Vehicle> Storage);
     void VehicleRemove(Garage<Vehicle> Storage);
     void VehicleSearch(Garage<Vehicle> Storage);
-    void VehicleSort(Garage<Vehicle> Storage);
     void ListVehicles(Garage<Vehicle> Storage);
     void ListVehicleTypes(Garage<Vehicle> Storage);
 

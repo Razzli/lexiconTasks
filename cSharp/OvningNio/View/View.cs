@@ -1,7 +1,7 @@
 using OvningNio.Controller;
 using OvningNio.Controller.Input;
 using OvningNio.Model.Garage;
-using OvningNio.Model.Vehicle;
+using OvningNio.Model.Vehicles;
 using OvningNio.View.Menu;
 
 namespace OvningNio.View;
@@ -62,13 +62,10 @@ class View
                     Handler.VehicleRemove(Garage);
                     break;
                 case 5:
-                    Handler.VehicleSort(Garage);
-                    break;
-                case 6:
                     if (Garage.UsedSpace != 0) Handler.VehicleSearch(Garage);
                     else Console.WriteLine("Garaget är tomt!");
                     break;
-                case 7:
+                case 6:
                     try
                     {
                         if (Garage.UsedSpace != 0) Handler.RegistryFind(Garage);
@@ -79,16 +76,16 @@ class View
                         Console.WriteLine(ae.Message);
                     }
                     break;
-                case 8:
+                case 7:
                     Garage = Handler.EGarageCreator();
                     break;
-                case 9:
+                case 8:
                     Garage = Handler.GarageCreator();
                     break;
-                case 10:
+                case 9:
                     Garage = Handler.RGarageCreator();
                     break;
-                case 11:
+                case 10:
                     Console.WriteLine("AVSLUTAR");
                     Running = false;
                     break;

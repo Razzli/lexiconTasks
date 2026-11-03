@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle.Boat;
+namespace OvningNio.Model.Vehicles.Boat;
 
 interface IBoat
 {

@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle.Plane;
+namespace OvningNio.Model.Vehicles.Plane;
 
 interface IPlane
 {

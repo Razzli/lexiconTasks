@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle.Car;
+namespace OvningNio.Model.Vehicles.Car;
 
 interface ICar
 {

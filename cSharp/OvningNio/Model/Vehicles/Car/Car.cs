@@ -1,4 +1,4 @@
-namespace OvningNio.Model.Vehicle.Car;
+namespace OvningNio.Model.Vehicles.Car;
 
 class Car : Vehicle, ICar
 {
@@ -22,7 +22,7 @@ class Car : Vehicle, ICar
 
     public override string ToString()
     {
-        if (SunRoof) return $"En {Colour} Motorcykel med registreringen {Registry}, {SeatCount} säten med soltak";
-        return $"En {Colour} Motorcykel med registreringen {Registry}, {SeatCount} säten utan soltak";
+        if (SunRoof) return $"En {Colour} bil med registreringen {Registry}, {SeatCount} säten med soltak";
+        return $"En {Colour} bil med registreringen {Registry}, {SeatCount} säten utan soltak";
     }
 }

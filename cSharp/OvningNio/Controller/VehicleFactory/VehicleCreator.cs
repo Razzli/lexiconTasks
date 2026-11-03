@@ -1,15 +1,15 @@
 using OvningNio.Model.Garage;
-using OvningNio.Model.Vehicle;
-using OvningNio.Model.Vehicle.Boat;
-using OvningNio.Model.Vehicle.Bus;
-using OvningNio.Model.Vehicle.Car;
-using OvningNio.Model.Vehicle.MotorCycle;
-using OvningNio.Model.Vehicle.Plane;
+using OvningNio.Model.Vehicles;
+using OvningNio.Model.Vehicles.Boat;
+using OvningNio.Model.Vehicles.Bus;
+using OvningNio.Model.Vehicles.Car;
+using OvningNio.Model.Vehicles.MotorCycle;
+using OvningNio.Model.Vehicles.Plane;
 using OvningNio.Controller.Input;
 using System.Text.RegularExpressions;
 
 namespace OvningNio.Controller.VehicleFactory;
-
+//Starting to see the limitation of my chosen architecture
 class VehicleCreator : IVehicleCreator, IRandomVechicleCreator
 {
     private static string[] _colours = [
@@ -32,11 +32,11 @@ class VehicleCreator : IVehicleCreator, IRandomVechicleCreator
         "5. MotorCykel\n",
         "Här: "
     ];
-    Vehicle IVehicleCreator.Create(Garage<Vehicle> Garage)
+    Vehicle IVehicleCreator.Create(List<Vehicle> Storage)
     {   
         string Colour, Registry;
         int SeatCount;
-        List<Vehicle> Vehicles = Garage.Storage;
+        List<Vehicle> Vehicles = Storage;
         while(true){
             foreach (string item in Menu)
             {
@@ -168,11 +168,11 @@ class VehicleCreator : IVehicleCreator, IRandomVechicleCreator
         }
     }
 
-    Vehicle IRandomVechicleCreator.Create(Garage<Vehicle> Garage)
+    Vehicle IRandomVechicleCreator.Create(List<Vehicle> Storage)
     {
         int Choice = Rand.Next(5);
         string Colour = _colours[Rand.Next(_colours.Length)];
-        string Registry = RegistryCreator(Garage.Storage);
+        string Registry = RegistryCreator(Storage);
         Vehicle vehicle;
         switch (Choice)
         {
