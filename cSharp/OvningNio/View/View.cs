@@ -1,55 +1,101 @@
 using OvningNio.Controller;
+using OvningNio.Controller.Input;
 using OvningNio.Model.Garage;
 using OvningNio.Model.Vehicle;
+using OvningNio.View.Menu;
 
 namespace OvningNio.View;
 
-class View : IStartMenu, IMainMenu
+class View
 {
-    private IStartMenu _startMenu = new View();
-    private IMainMenu _mainMenu = new View();
+    private bool Running;
     private GarageHandler Handler;
-    private Garage<Vehicle> Storage;
-    private readonly string[] StartMenu = [
-        "Vänligen skapa ett garage:\n",
-        "1. För att skapa ett tomt garage\n",
-        "2. För ett populerat garage\n",
-        "3. För att skapa ett slumpat garage\n",
-        "Ange input: "
-    ];
-    private readonly string[] Menu = [
-        "DU HAR ETT GARAGE\n",
-        "DU KAN GÖRA FÖLJANDE:\n",
-        "1. LISTA FORDON\n",
-        "2. LISTA FORDONSTYPER\n",
-        "3. LÄGG TILL ETT FORDON\n",
-        "4. TA BORT ETT FORDON\n",
-        "5. SORTERA FORDON\n",
-        "6. SÖK FORDON EFTER EGENSKAP\n",
-        "7. SÖK FORDON EFTER REGISTRERINGSNUMMER\n",
-        "8. SKAPA ETT NYTT TOMT GARAGE\n",
-        "9. SKAPA ETT NYTT POPULERAT GARAGE\n",
-        "10. SKAPA ETT NYTT SLUMPAT GARAGE\n",
-        "11. AVSLUTA\n",
-        "ANGE INPUT: "
-    ];
+    private Garage<Vehicle> Garage;
+    readonly IStartMenu StartMenu = new Menus();
+    readonly IMainMenu MainMenu = new Menus();
+    readonly IStringInputHandler StringReader = new InputHandler();
+    readonly IIntInputHandler IntReader = new InputHandler();
+    
     public void Run()
     {
-        Menu();
-    }
-
-    void IStartMenu.Menu()
-    {
-        foreach (var item in StartMenu)
+        Running = true;
+        while (Running)
         {
-            Console.Write(item);
+            StartMenu.Show();
+            int choice = IntReader.Read();
+            switch (choice)
+            {
+                case 1:
+                    Garage = Handler.EGarageCreator();
+                    Running = false;
+                    break;
+                case 2:
+                    Garage = Handler.GarageCreator();
+                    Running = false;
+                    break;
+                case 3:
+                    Garage = Handler.RGarageCreator();
+                    Running = false;
+                    break;
+                default:
+                    Console.WriteLine("ANGE GILTIGT SVAR! STARTAR OM");
+                    break;
+            }
+        }
+        Running = true;
+        while (Running)
+        {
+            MainMenu.Show();
+            int choice = IntReader.Read();
+            switch (choice)
+            {
+                case 1:
+                    Handler.ListVehicles(Garage);
+                    break;
+                case 2:
+                    Handler.ListVehicleTypes(Garage);
+                    break;
+                case 3:
+                    Handler.VehicleAdd(Garage);
+                    break;
+                case 4:
+                    Handler.VehicleRemove(Garage);
+                    break;
+                case 5:
+                    Handler.VehicleSort(Garage);
+                    break;
+                case 6:
+                    if (Garage.UsedSpace != 0) Handler.VehicleSearch(Garage);
+                    else Console.WriteLine("Garaget är tomt!");
+                    break;
+                case 7:
+                    try
+                    {
+                        if (Garage.UsedSpace != 0) Handler.RegistryFind(Garage);
+                        else Console.WriteLine("Garaget är tomt!");
+                    }
+                    catch (ArgumentException ae)
+                    {
+                        Console.WriteLine(ae.Message);
+                    }
+                    break;
+                case 8:
+                    Garage = Handler.EGarageCreator();
+                    break;
+                case 9:
+                    Garage = Handler.GarageCreator();
+                    break;
+                case 10:
+                    Garage = Handler.RGarageCreator();
+                    break;
+                case 11:
+                    Console.WriteLine("AVSLUTAR");
+                    Running = false;
+                    break;
+                default:
+                    Console.WriteLine("ANGE ETT GILTIGT ALTERNATIV");
+                    break;
+            }
         }
     }
-
-    void IMainMenu.Menu()
-    {
-        throw new NotImplementedException();
-    }
-
-    
 }

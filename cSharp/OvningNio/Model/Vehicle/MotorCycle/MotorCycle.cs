@@ -3,6 +3,7 @@ namespace OvningNio.Model.Vehicle.MotorCycle;
 class MotorCycle : Vehicle, IMotorCycle
 {
     private bool _storageCompartment;
+    private readonly string _localization = "Motorcykel";
 
     public MotorCycle(string Registry, string Colour, int SeatCount, bool StorageCompartment)
     {
@@ -16,10 +17,11 @@ class MotorCycle : Vehicle, IMotorCycle
         set => _storageCompartment = value;
     }
 
-    public override string Localization => throw new NotImplementedException();
+    public override string Localization => _localization;
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        if (StorageCompartment) return $"En {Colour} motorcykel med registreringen {Registry}, {SeatCount} säten med förvaring";
+        return $"En {Colour} motorcykel med registreringen {Registry}, {SeatCount} säten utan förvaring";
     }
 }

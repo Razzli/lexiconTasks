@@ -149,6 +149,6 @@ class Program
         Console.WriteLine("Max, Min");
         var max = studenter.Max(Student => Student.Poang);
         var min = studenter.Min(Student => Student.Poang);
-        Console.WriteLine($"{max}, {min}");
+        Console.WriteLine($"{max}, {min}");     
     }
 }

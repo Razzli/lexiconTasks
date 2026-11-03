@@ -1,8 +1,8 @@
-namespace OvningNio.Controller.InputHandler;
+namespace OvningNio.Controller.Input;
 
 class InputHandler : IStringInputHandler, IIntInputHandler
 {
-    static string IStringInputHandler.Read()
+    string IStringInputHandler.Read()
     {
         string? Input;
         while (true)
@@ -19,7 +19,7 @@ class InputHandler : IStringInputHandler, IIntInputHandler
         }
     }
 
-    static int IIntInputHandler.Read()
+    int IIntInputHandler.Read()
     {
         while (true)
         {

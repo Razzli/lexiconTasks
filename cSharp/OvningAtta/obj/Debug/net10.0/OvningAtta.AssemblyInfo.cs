@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OvningAtta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b785edf8bef137ab67c8e266a8486f683f2fe519")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e17e3294998e6c18021491cc808a0c0c413b069")]
 [assembly: System.Reflection.AssemblyProductAttribute("OvningAtta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OvningAtta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,6 +4,7 @@ class Bus : Vehicle, IBus
 {
     private bool _roofAccess;
     private int _wheelCount;
+    private string _localization = "buss";
 
     public Bus (string Registry, string Colour, int SeatCount, bool RoofAccess, int WheelCount)
     {
@@ -22,10 +23,11 @@ class Bus : Vehicle, IBus
         set => _wheelCount = value;
     }
 
-    public override string Localization => throw new NotImplementedException();
+    public override string Localization => _localization;
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        if (RoofAccess) return $"En {Colour} Motorcykel med registreringen {Registry}, {SeatCount} säten, {WheelCount} hjul med takaccess";
+        return $"En {Colour} Motorcykel med registreringen {Registry}, {SeatCount} säten, {WheelCount} hjul utan takaccess";
     }
 }

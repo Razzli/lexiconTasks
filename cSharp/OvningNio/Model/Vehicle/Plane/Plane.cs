@@ -4,6 +4,7 @@ class Plane : Vehicle, IPlane
 {
     private int _wingSpan;
     private int _engineCount;
+    private readonly string _localization = "flygplan";
 
     public Plane(string Registry, string Colour, int SeatCount, int Wingspan, int EngineCount)
     {
@@ -22,10 +23,10 @@ class Plane : Vehicle, IPlane
         set => _engineCount = value;
     }
 
-    public override string Localization => throw new NotImplementedException();
+    public override string Localization => _localization;
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return $"Ett {Colour} flygplan med registreringsnummret {Registry}, {SeatCount} säten, {EngineCount} motorer och ett vingspann på {Wingspan} meter.";
     }
 }

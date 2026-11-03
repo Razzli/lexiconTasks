@@ -5,11 +5,13 @@ interface IGarage<T>
     int Size {get;}
     int FreeSpace {get;}
 
+    int UsedSpace {get;}
+
     List<T> Storage {get;}
 
-    public bool AddVehicle();
+    public bool Add(T Target);
 
-    public bool RemoveVehicle();
+    public bool Remove(T Target);
 
     public void Sort();
 

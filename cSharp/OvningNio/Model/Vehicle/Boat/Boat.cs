@@ -4,6 +4,7 @@ class Boat : Vehicle, IBoat
 {
     private int _length;
     private int _engineCount;
+    private readonly string _localization = "båt";
 
     public Boat(string Registry, string Colour, int SeatCount, int Length, int EngineCount)
     {
@@ -23,10 +24,10 @@ class Boat : Vehicle, IBoat
         set => _engineCount = value;
     }
 
-    public override string Localization => throw new NotImplementedException();
+    public override string Localization => _localization;
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return $"En {Length} lång, {Colour} båt med registreringen {Registry}, {SeatCount} säten och {EngineCount} motorer";
     }
 }

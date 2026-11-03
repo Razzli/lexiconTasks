@@ -1,7 +1,7 @@
 using OvningNio.Model.Garage;
 using OvningNio.Model.Vehicle;
 
-namespace OvningNio.Controller.VehicleCreator;
+namespace OvningNio.Controller.VehicleFactory;
 
 interface IVehicleCreator
 {

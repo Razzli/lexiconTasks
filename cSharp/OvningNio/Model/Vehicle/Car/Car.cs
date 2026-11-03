@@ -3,6 +3,7 @@ namespace OvningNio.Model.Vehicle.Car;
 class Car : Vehicle, ICar
 {
     private bool _sunRoof;
+    private readonly string _localization = "bil";
 
     public Car(string Registry, string Colour, int SeatCount, bool SunRoof)
     {
@@ -17,10 +18,11 @@ class Car : Vehicle, ICar
         set => _sunRoof = value;
     }
 
-    public override string Localization => throw new NotImplementedException();
+    public override string Localization => _localization;
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        if (SunRoof) return $"En {Colour} Motorcykel med registreringen {Registry}, {SeatCount} säten med soltak";
+        return $"En {Colour} Motorcykel med registreringen {Registry}, {SeatCount} säten utan soltak";
     }
 }

@@ -9,11 +9,10 @@ interface IGarageHandler
     Garage<Vehicle> EGarageCreator();
     Garage<Vehicle> GarageCreator();
     Garage<Vehicle> RGarageCreator();
-    Vehicle RegistryFind();
-
+    void RegistryFind(Garage<Vehicle> Storage);
     void VehicleAdd(Garage<Vehicle> Storage);
     void VehicleRemove(Garage<Vehicle> Storage);
-    bool VehicleSearch(Garage<Vehicle> Storage);
+    void VehicleSearch(Garage<Vehicle> Storage);
     void VehicleSort(Garage<Vehicle> Storage);
     void ListVehicles(Garage<Vehicle> Storage);
     void ListVehicleTypes(Garage<Vehicle> Storage);
