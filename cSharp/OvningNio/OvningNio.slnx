@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="OvningNio/OvningNio.csproj" />
+  <Project Path="OvningNioTests/OvningNioTests.csproj" />
+</Solution>
