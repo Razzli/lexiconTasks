@@ -1,0 +1,6 @@
+@OvningEtt_HostAddress = http://localhost:5134
+
+GET {{OvningEtt_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
