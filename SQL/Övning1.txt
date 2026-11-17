@@ -1,0 +1,30 @@
+1:
+    INSERT INTO TABLE VALUES(BO, KARLSSON, Furuv. 8, 12388, Göteborg, 010555223, bo@live.se, Volvo, V70)
+    INSERT INTO TABLE VALUES (BO, KARLSSON, Furuv. 8, 12388, Göteborg, 010555223, bo@live.se, Volvo, V80)
+
+2:
+    Varje gång vi ska lägga till en bil under Bo måste vi be användaren ange all tillgänglig information vilket introducerar rum till mänskliga misstag där Bo Karlsson plötsligt har en till bostad på Furuv. 9.
+    Utöver detta gör också storleken på databasen att den blir väldigt långsam att iterera över, och datahämtning tar mer tid än nödvändigt
+
+3: 
+    En primärnyckel är en unik datapunkt som ger användaren access till en specifik rad i databasen, i fallet för databasen skulle den läggas till som en ny kolumn ID.
+    En sekundärnyckel är inte unik och fungerar som en eller flera datapunkter som hjälper till vid sökning eller queries.
+
+4:
+    Nej, ett personnummer är inte immutable och kan komma att ändras
+
+5:
+    Sekundärnyckeln behöver inte vara unik då den är mer tänkt som hjälp vid sökning/queries och har inte samma kritiska roll som primärnyckeln
+
+6:
+    Data kan vara vad som helst, ett byte värde, en sträng, siffran 909, medans information är en samling data som tack vare datans komposition ger den mening.
+
+7:
+    1:1 - Jag äger en bil
+    1:N - Jag äger flera äpplen
+
+8:
+    Gör databasen till en 1:N struktur:
+
+    Användare: (ID, FÖRNAMN, EFTERNAMN, ADDRESS, POSTNUMMER, STAD, TELEFONNUMMER, EMAIL)
+    Bil: (FOREIGN KEY ID, MODELL, Märke)

@@ -1,0 +1,20 @@
+1.  
+    Lastbalansering är behandling av stora mängder data i parallela processer för att systemet ska kunna hantera den datan i rimlig tid.
+    Det kan tillikas ett vattenflöde, tänk dig att du ska förflytta 100ml/s vatten, men de rör du har kan bara hantera 25ml/s var.
+    Det du kan göra i det fallet är att ha 4 stycken parallela rör så att de tillsammans kommer upp i 100ml/s.
+
+2.
+    Tänk dig att du är ett extremt stort dataföretag, Microsoft, och har kunder världen över. En individuell server kan aldrig hantera hela världens datakrav på en gång,
+    därav kan flera servrar parallelt se till att all data blir processerad i tid och världens användning av outlook pausas inte.
+
+3.  
+    Webbservern behöver inte neka människor för att handskakningsprotokoll tar tid, vi kan hantera fler användare på samma gång och hemsidan kan processera mer data för fler användare samtidigt
+
+4. 
+    En typ av live kopiering och backup till en kopia av databasen. Används för bland annat transactions.
+
+5.
+    Mirroring skapar en kopia som inte går att ändra eller läsa och bara går igång när orginalet går ned, används för att minska downtime när något går snett.
+
+6.
+    Always on är en typ av mirroring där istället för att använda en kopia har man flera, den stora skillnaden mellan mirroring och always on är att man kan läsa från always on och därav ta kopior på den.

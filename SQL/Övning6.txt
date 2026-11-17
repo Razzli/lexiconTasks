@@ -1,0 +1,21 @@
+Skapa:
+CREATE PROC getName
+@firstname varchar(40) = 'default'
+AS
+SELECT FirstName, LastName
+FROM Customers
+WHERE FirstName = @firstname
+
+Anropa:
+EXEC getName 'Bertil'
+
+
+Skapa:
+CREATE PROC getPName
+AS
+SELECT FirstName, LastName
+FROM Customers
+WHERE LEFT(LastName, 1) = 'P'
+
+Anropa:
+EXEC getPName

@@ -1,0 +1,8 @@
+Skapa:
+CREATE PROC getMarkOrAstrid
+AS
+SELECT FirstName, LastName FROM Customers
+where FirstName = 'Mark' OR FirstName = 'Astrid'
+
+Anropa:
+exec getMarkOrAstrid

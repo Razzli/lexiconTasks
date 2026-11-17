@@ -1,0 +1,13 @@
+Exempel Hus: (()) indikerar stark identitet
+
+Tomt -> Finns (1-1) -> Hus
+
+Tomt -> ÄR ((1-1)) -> Address
+
+Hus -> Har (1-N) -> Rum
+
+Hus -> Har (1-N) -> Inneboende
+
+Rum -> Har (1-N) -> Möbler
+
+Inneboende -> Äger (1-N) -> Möbler

@@ -1,0 +1,25 @@
+CREATE DATABASE School;
+GO
+
+USE School;
+GO
+
+CREATE TABLE Student
+(
+    SID INT PRIMARY KEY NOT NULL,
+    FNAME VARCHAR(20) NOT NULL,
+    LNAME VARCHAR(20) NOT NULL,
+    COMMENT VARCHAR(511) NULL
+);
+GO
+
+INSERT INTO STUDENT (SID, FNAME, LNAME, COMMENT)
+VALUES (1, 'Herman', 'Whalén', 'Otroligt medelmåttig');
+
+INSERT INTO STUDENT (SID, FNAME, LNAME, COMMENT)
+VALUES (2, 'Bength', 'Kraen', 'Otroligt medelmåttigg');
+
+INSERT INTO STUDENT (SID, FNAME, LNAME, COMMENT)
+VALUES (3, 'Klahs', 'Ohlsen', 'Otroligt medelmåttiggg');
+
+GO
