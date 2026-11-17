@@ -1,8 +1,8 @@
 # Visual Studio & byggfiler
-*/bin/
-*/obj/
-*/.vs/
-*/.vscode/
+bin/
+obj/
+.vs/
+.vscode/
 *.user
 *.suo
 *.sln.docstates
